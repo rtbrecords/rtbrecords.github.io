@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="us-ascii"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>About Us - RTB GANG RECORDS</title>
+	<style type="text/css">body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #000;
+        color: #fff;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        overflow-x: hidden;
+    }
+
+    header {
+        background-color: #000;
+        padding: 10px;
+        border-bottom: 3px solid #ff0000;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    nav {
+        display: flex;
+        justify-content: flex-end;
+        background-color: #000;
+        padding: 5px 10px;
+        position: relative;
+        border: 1px solid #ff0000;
+        transition: transform 0.3s ease;
+    }
+
+    nav a {
+        color: white;
+        text-decoration: none;
+        padding: 5px 10px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+    }
+
+    nav a:hover {
+        background-color: #ff0000;
+        color: #fff;
+    }
+
+    .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+        padding: 5px;
+        background-color: #000;
+        border: 2px solid #ff0000;
+    }
+
+    .hamburger div {
+        width: 25px;
+        height: 3px;
+        background-color: #fff;
+        margin: 4px 0;
+    }
+
+    .content {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 40px;
+        animation: fadeIn 2s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    .content h1 {
+        font-size: 3em;
+        color: #ff0000;
+        text-transform: uppercase;
+        letter-spacing: 5px;
+        border-bottom: 3px solid #ff0000;
+        padding-bottom: 10px;
+        animation: slideIn 2s ease-in-out;
+    }
+
+    @keyframes slideIn {
+        from { transform: translateX(-100%); }
+        to { transform: translateX(0); }
+    }
+
+    .about-text {
+        margin-top: 20px;
+        max-width: 800px;
+        line-height: 1.8;
+        font-size: 1.2em;
+        animation: fadeInUp 2s ease-in-out;
+    }
+
+    @keyframes fadeInUp {
+        from { transform: translateY(50px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+
+    .team-section {
+        margin-top: 40px;
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .team-member {
+        background-color: #111;
+        padding: 20px;
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+        max-width: 250px;
+        flex: 1 1 calc(33% - 20px);
+        margin: 10px;
+        border: 1px solid #ff0000;
+    }
+
+    .team-member:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .team-member img {
+        width: 100%;
+        height: auto;
+        border-bottom: 3px solid #ff0000;
+        margin-bottom: 10px;
+    }
+
+    .team-member h3 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+        color: #fff;
+        animation: zoomIn 2s ease-in-out;
+    }
+
+    @keyframes zoomIn {
+        from { transform: scale(0.5); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+
+    .team-member p {
+        color: #aaa;
+        font-size: 1em;
+        margin-bottom: 10px;
+    }
+
+    footer {
+        background-color: #000;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        border-top: 3px solid #ff0000;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+        nav {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #000;
+            z-index: 9999;
+            transform: translateX(100%);
+        }
+
+        nav.show {
+            transform: translateX(0);
+        }
+
+        .hamburger {
+            display: flex;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .content h1 {
+            font-size: 2em;
+        }
+
+        .team-section {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .team-member {
+            max-width: 100%;
+            margin-bottom: 20px;
+        }
+
+        nav a {
+            margin: 10px;
+            padding: 15px 20px;
+            color: #fff;
+            font-size: 1.5em;
+            text-align: center;
+        }
+    }
+	</style>
+</head>
+<body>
+<header>
+<div class="hamburger" onclick="toggleMenu()">
+<div></div>
+
+<div></div>
+
+<div></div>
+</div>
+
+<nav id="navbar"><a href="index.html">Home</a> <a href="new-release.html">Releases</a> <a href="artist.html">Artists</a> <a href="about.html">About Us</a> <a href="contact.html">Contact Us</a></nav>
+</header>
+
+<div class="content">
+<h1><span style="font-size:18px;"><span style="color:#ffffff;">About </span>RTB GANG <span style="color:#ffffff;">RECORDS</span></span></h1>
+
+<div class="about-text">
+<p>Welcome to RTB GANG RECORDS, where music meets passion. Our label is home to some of the most talented and innovative artists in the industry. We are committed to creating a platform that nurtures and showcases unique musical talents from across the globe.</p>
+
+<p>Founded with the vision of breaking boundaries and setting new standards in the music world, RTB GANG RECORDS is not just a label, but a community of artists and music lovers dedicated to pushing the creative envelope. Our mission is to inspire, create, and share extraordinary music experiences with the world.</p>
+</div>
+
+<div class="team-section">
+<div class="team-member"><img alt="CEO Picture" src="ceo.jpg" />
+<h3>Khalii Wiz</h3>
+
+<p>CEO &amp; Founder</p>
+</div>
+
+<div class="team-member"><img alt="Team Member 1" src="team1.jpg" />
+<h3>Numz</h3>
+
+<p>Director &amp; Photographer</p>
+</div>
+
+<div class="team-member"><img alt="Team Member 2" src="team2.jpg" />
+<h3>Paulwantsomemoney</h3>
+
+<p>IT &amp; Music Distributor</p>
+</div>
+
+<div class="team-member"><img alt="Team Member 3" src="team3.jpg" />
+<h3>10kgabby</h3>
+
+<p>Finance Manager &amp; Artist Manager</p>
+</div>
+
+
+
+</div>
+
+<footer>
+<p>&copy; 2024 RTB GANG RECORDS. All rights reserved.</p>
+</footer>
+<script>
+    function toggleMenu() {
+        const navbar = document.getElementById('navbar');
+        navbar.classList.toggle('show');
+    }
+</script></body>
+</html>
