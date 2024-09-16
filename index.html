@@ -29,17 +29,17 @@
             align-items: center;
         }
 
-        nav {
-            display: flex;
-            justify-content: flex-end;
-            background-color: #000;
-            padding: 5px 10px;
-            border: 1px solid #ff0000;
-            transition: transform 0.3s ease;
-            position: absolute;
-            top: 10px;
-            right: 10px;
-        }
+       nav {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #000;
+    padding: 5px 10px;
+    border: 1px solid #ff0000;
+    transition: transform 0.3s ease;
+    position: absolute; /* Make the nav position absolute */
+    top: 10px; /* Adjust the top positioning */
+    right: 10px; /* Align to the right */
+}
 
         nav a {
             color: white;
@@ -54,6 +54,7 @@
             color: #fff;
         }
 
+        /* Hamburger Menu Styling */
         .hamburger {
             display: none;
             flex-direction: column;
@@ -83,6 +84,7 @@
             transform: rotate(45deg) translate(-5px, -6px);
         }
 
+        /* Mobile nav menu */
         nav.mobile-menu {
             position: fixed;
             top: 0;
@@ -113,7 +115,7 @@
 
         .logo-block {
             width: 100%;
-            height: 100vh;
+            height: 100vh; /* Full screen height */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -121,7 +123,7 @@
         }
 
         .logo-block img {
-            max-width: 80%;
+            max-width: 80%; /* Responsive logo size */
             height: auto;
             animation: float 4s ease-in-out infinite;
         }
@@ -132,6 +134,7 @@
             100% { transform: translateY(0); }
         }
 
+        /* Welcome Note Block */
         .welcome-block {
             display: flex;
             align-items: center;
@@ -181,71 +184,7 @@
             color: #555;
         }
 
-        .new-music-block {
-            padding: 20px;
-            background-color: #f9f9f9;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            margin: 20px 0;
-        }
-
-        .new-music-block h2 {
-            font-size: 1.8rem;
-            color: #000;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            border-bottom: 2px solid #ff0000;
-            padding-bottom: 8px;
-            animation: blink-red 1s infinite;
-        }
-
-        .new-music-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 15px;
-        }
-
-        .new-music-item img {
-            width: 150px;
-            height: auto;
-            object-fit: cover;
-            border-radius: 8px;
-            margin-right: 15px;
-        }
-
-        .music-details {
-            flex-grow: 1;
-        }
-
-        .music-details h3 {
-            font-size: 1.2rem;
-            color: #000;
-            margin: 0;
-        }
-
-        .music-details p {
-            color: #777;
-            font-size: 0.9rem;
-        }
-
-        .music-details a {
-            display: inline-block;
-            padding: 8px 12px;
-            background-color: #ff0000;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 4px;
-            margin-top: 10px;
-        }
-
-        .music-details a:hover {
-            background-color: #e60000;
-        }
-
+        /* Upcoming Releases Block */
         .upcoming-block, .popular-hits-block {
             padding: 20px;
             background-color: #f9f9f9;
@@ -305,11 +244,6 @@
             margin-top: auto;
         }
 
-        @keyframes blink-red {
-            0%, 100% { color: #000; }
-            50% { color: #ff0000; }
-        }
-
         .video-container {
             position: relative;
             padding-bottom: 56.25%;
@@ -328,58 +262,136 @@
             height: 100%;
         }
 
+        /* Mobile styles */
         @media (max-width: 768px) {
-            .hamburger { display: flex;
-        }
-             nav {
-            display: none;
+            nav {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+            }
+
+            .logo-block img {
+                max-width: 90%;
+            }
+
+            .welcome-block {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .release-item img, .hit-item img {
+                float: none;
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
         }
 
-        .welcome-block {
-            flex-direction: column;
-            gap: 20px;
+        /* Blinking Animation for Headings */
+        .blink-red {
+            animation: blink-red 1s infinite;
         }
-    }
-</style>
-           </head> <body> <header> <h1 style="color:white;">RTB GANG RECORDS</h1> <div class="hamburger"> <div></div> <div></div> <div></div> </div> <nav class="mobile-menu"> <a href="#">Home</a> <a href="#">Artists</a> <a href="#">Releases</a> <a href="#">Contact</a> </nav> </header>
-<div class="logo-block">
-    <img src="your-logo.png" alt="Logo">
-</div>
 
-<div class="new-music-block">
-    <h2>New Music</h2>
-    <div class="new-music-item">
-        <img src="new-song-artwork.jpg" alt="New Music Artwork">
-        <div class="music-details">
-            <h3>'Fuck Love' - RTB GANG</h3>
-            <p>Check out the latest release from RTB GANG, titled 'Fuck Love'. A raw and powerful track you don't want to miss!</p>
-            <a href="song-link.mp3">Listen Now</a>
+        @keyframes blink-red {
+            0%, 100% { color: #000; }
+            50% { color: #ff0000; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
         </div>
+        <nav id="navbar">
+            <a href="index.html">Home</a> 
+            <a href="release.html">Releases</a> 
+            <a href="artist.html">Artists</a> 
+            <a href="about.html">About Us</a> 
+            <a href="contact.html">Contact Us</a>
+        </nav>
+        <nav id="mobile-navbar" class="mobile-menu">
+            <a href="index.html">Home</a> 
+            <a href="release.html">Releases</a> 
+            <a href="artist.html">Artists</a> 
+            <a href="about.html">About Us</a> 
+            <a href="contact.html">Contact Us</a>
+        </nav>
+    </header>
+
+    <!-- Logo Block -->
+    <div class="logo-block">
+        <img alt="RTB GANG RECORDS Logo" src="rtb-logo.jpg" /> <!-- Replace with your logo path -->
+    </div>
+
+    <!-- Welcome Block -->
+    <div class="welcome-block">
+        <div class="ceo-image">
+            <img alt="Welcome from our CEO" src="ceo-welcome1.jpg" /> <!-- Replace with your CEO's image path -->
+        </div>
+        <div class="ceo-summary">
+            <h2>Our <span style="color:#e74c3c;">popular</span> services</h2>
+            <p>Welcome to <span style="color:#e74c3c;">RTB Gang Records</span>! Come work with us, for Studio recording music for just <span style="color:#e74c3c;">Tshs. 80.000.00/=</span></p>
+        </div>
+    </div>
+
+    <!-- Upcoming Releases Block -->
+    <div class="upcoming-block">
+        <h2 class="blink-red">Upcoming Releases</h2>
+        <div class="release-item">
+            <img alt="Track Name 1" src="release1.jpg" /> <!-- Replace with your track image -->
+            <div class="release-details">
+                <h3>Samade - Alien (Official Audio)</h3>
+                <p>Release Date: September 16, 2024</p>
+                <p>Hip hop/ Rap Song</p>
+            </div>
+        </div>
+
+        <div class="release-item">
+            <img alt="Track Name 2" src="release2.jpg" /> <!-- Replace with your track image -->
+            <div class="release-details">
+                <h3>Finessenesseh ft Beybah - Ray (Audio)</h3>
+                <p>Release Date: September 16, 2024</p>
+                <p>Rnb/ Love Song</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- New and Popular Hits Block -->
+   <div class="new-popular-hits-block">
+    <h2>New and Popular Hits</h2>
+    
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/-1SswBDA9kY?si=RMjUGeKaPHHumxI8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/_SW1j6ZAP_g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/Sfx5hkKG8pw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 </div>
 
-<div class="upcoming-block">
-    <h2>Upcoming Releases</h2>
-    <div class="release-item">
-        <img src="upcoming1.jpg" alt="Upcoming Release 1">
-        <div class="release-details">
-            <h3>New Album - 'Next Wave'</h3>
-            <p>Dropping soon - the next big album from RTB GANG!</p>
-        </div>
-    </div>
-</div>
 
-<footer>
-    <p>RTB GANG RECORDS &copy; 2024. All Rights Reserved.</p>
-</footer>
+    <footer>
+        <p>&copy; 2024 RTB GANG RECORDS. All rights reserved.</p>
+    </footer>
 
-<script>
-    const hamburger = document.querySelector('.hamburger');
-    const mobileMenu = document.querySelector('.mobile-menu');
-
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        mobileMenu.classList.toggle('show');
-    });
-</script>
-</body> </html>
+    <script>
+        function toggleMenu() {
+            const mobileNavbar = document.getElementById('mobile-navbar');
+            mobileNavbar.classList.toggle('show');
+            document.querySelector('.hamburger').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
