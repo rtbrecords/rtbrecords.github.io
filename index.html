@@ -29,17 +29,17 @@
             align-items: center;
         }
 
-       nav {
-    display: flex;
-    justify-content: flex-end;
-    background-color: #000;
-    padding: 5px 10px;
-    border: 1px solid #ff0000;
-    transition: transform 0.3s ease;
-    position: absolute; /* Make the nav position absolute */
-    top: 10px; /* Adjust the top positioning */
-    right: 10px; /* Align to the right */
-}
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            background-color: #000;
+            padding: 5px 10px;
+            border: 1px solid #ff0000;
+            transition: transform 0.3s ease;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
 
         nav a {
             color: white;
@@ -54,7 +54,6 @@
             color: #fff;
         }
 
-        /* Hamburger Menu Styling */
         .hamburger {
             display: none;
             flex-direction: column;
@@ -84,7 +83,6 @@
             transform: rotate(45deg) translate(-5px, -6px);
         }
 
-        /* Mobile nav menu */
         nav.mobile-menu {
             position: fixed;
             top: 0;
@@ -115,7 +113,7 @@
 
         .logo-block {
             width: 100%;
-            height: 100vh; /* Full screen height */
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -123,7 +121,7 @@
         }
 
         .logo-block img {
-            max-width: 80%; /* Responsive logo size */
+            max-width: 80%;
             height: auto;
             animation: float 4s ease-in-out infinite;
         }
@@ -134,7 +132,6 @@
             100% { transform: translateY(0); }
         }
 
-        /* Welcome Note Block */
         .welcome-block {
             display: flex;
             align-items: center;
@@ -184,8 +181,7 @@
             color: #555;
         }
 
-        /* Upcoming Releases Block */
-        .upcoming-block, .popular-hits-block {
+        .upcoming-block, .popular-hits-block, .out-now-block {
             padding: 20px;
             background-color: #f9f9f9;
             border: 1px solid #e0e0e0;
@@ -193,7 +189,7 @@
             margin: 20px 0;
         }
 
-        .upcoming-block h2, .popular-hits-block h2 {
+        .upcoming-block h2, .popular-hits-block h2, .out-now-block h2 {
             font-size: 1.8rem;
             color: #000;
             margin-bottom: 15px;
@@ -202,7 +198,7 @@
             padding-bottom: 8px;
         }
 
-        .release-item, .hit-item {
+        .release-item, .hit-item, .out-now-item {
             overflow: hidden;
             margin-bottom: 15px;
             padding: 15px;
@@ -211,7 +207,7 @@
             border-radius: 8px;
         }
 
-        .release-item img, .hit-item img {
+        .release-item img, .hit-item img, .out-now-item img {
             float: left;
             width: 150px;
             height: auto;
@@ -220,17 +216,17 @@
             margin-right: 15px;
         }
 
-        .release-details, .hit-details {
+        .release-details, .hit-details, .out-now-details {
             overflow: hidden;
         }
 
-        .release-item h3, .hit-item h3 {
+        .release-item h3, .hit-item h3, .out-now-item h3 {
             font-size: 1.2rem;
             color: #000;
             margin: 0;
         }
 
-        .release-item p, .hit-item p {
+        .release-item p, .hit-item p, .out-now-item p {
             color: #777;
             font-size: 0.9rem;
         }
@@ -262,7 +258,6 @@
             height: 100%;
         }
 
-        /* Mobile styles */
         @media (max-width: 768px) {
             nav {
                 display: none;
@@ -284,7 +279,7 @@
                 text-align: center;
             }
 
-            .release-item img, .hit-item img {
+            .release-item img, .hit-item img, .out-now-item img {
                 float: none;
                 width: 100%;
                 margin-right: 0;
@@ -292,7 +287,6 @@
             }
         }
 
-        /* Blinking Animation for Headings */
         .blink-red {
             animation: blink-red 1s infinite;
         }
@@ -311,86 +305,104 @@
             <div></div>
         </div>
         <nav id="navbar">
-            <a href="index.html">Home</a> 
-            <a href="release.html">Releases</a> 
-            <a href="artist.html">Artists</a> 
-            <a href="about.html">About Us</a> 
+            <a href="index.html">Home</a>
+            <a href="release.html">Releases</a>
+            <a href="artist.html">Artists</a>
+            <a href="about.html">About Us</a>
             <a href="contact.html">Contact Us</a>
         </nav>
         <nav id="mobile-navbar" class="mobile-menu">
-            <a href="index.html">Home</a> 
-            <a href="release.html">Releases</a> 
-            <a href="artist.html">Artists</a> 
-            <a href="about.html">About Us</a> 
+            <a href="index.html">Home</a>
+            <a href="release.html">Releases</a>
+            <a href="artist.html">Artists</a>
+            <a href="about.html">About Us</a>
             <a href="contact.html">Contact Us</a>
         </nav>
     </header>
 
-    <!-- Logo Block -->
     <div class="logo-block">
-        <img alt="RTB GANG RECORDS Logo" src="rtb-logo.jpg" /> <!-- Replace with your logo path -->
+        <img src="your-logo.png" alt="RTB GANG RECORDS Logo">
     </div>
 
-    <!-- Welcome Block -->
     <div class="welcome-block">
         <div class="ceo-image">
-            <img alt="Welcome from our CEO" src="ceo-welcome1.jpg" /> <!-- Replace with your CEO's image path -->
+            <img src="ceo-image.jpg" alt="CEO">
         </div>
         <div class="ceo-summary">
-            <h2>Our <span style="color:#e74c3c;">popular</span> services</h2>
-            <p>Welcome to <span style="color:#e74c3c;">RTB Gang Records</span>! Come work with us, for Studio recording music for just <span style="color:#e74c3c;">Tshs. 80.000.00/=</span></p>
+            <h2>Welcome from our CEO</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet accumsan arcu. Nam vehicula, dolor vel commodo sollicitudin, nisl erat venenatis lectus, in consectetur ligula nisi nec orci. Nulla facilisi.</p>
         </div>
     </div>
 
-    <!-- Upcoming Releases Block -->
     <div class="upcoming-block">
-        <h2 class="blink-red">Upcoming Releases</h2>
+        <h2>Upcoming Releases</h2>
         <div class="release-item">
-            <img alt="Track Name 1" src="release1.jpg" /> <!-- Replace with your track image -->
+            <img src="release1.jpg" alt="Release 1">
             <div class="release-details">
-                <h3>Samade - Alien (Official Audio)</h3>
-                <p>Release Date: September 16, 2024</p>
-                <p>Hip hop/ Rap Song</p>
+                <h3>Release Title 1</h3>
+                <p>Release Description 1. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             </div>
         </div>
-
         <div class="release-item">
-            <img alt="Track Name 2" src="release2.jpg" /> <!-- Replace with your track image -->
+            <img src="release2.jpg" alt="Release 2">
             <div class="release-details">
-                <h3>Finessenesseh ft Beybah - Ray (Audio)</h3>
-                <p>Release Date: September 16, 2024</p>
-                <p>Rnb/ Love Song</p>
+                <h3>Release Title 2</h3>
+                <p>Release Description 2. Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
             </div>
         </div>
+        <!-- Add more releases as needed -->
     </div>
 
-    <!-- New and Popular Hits Block -->
-   <div class="new-popular-hits-block">
-    <h2>New and Popular Hits</h2>
-    
-    <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/-1SswBDA9kY?si=RMjUGeKaPHHumxI8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <div class="popular-hits-block">
+        <h2>New and Popular Hits</h2>
+        <div class="hit-item">
+            <img src="hit1.jpg" alt="Hit 1">
+            <div class="hit-details">
+                <h3>Hit Title 1</h3>
+                <p>Hit Description 1. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            </div>
+        </div>
+        <div class="hit-item">
+            <img src="hit2.jpg" alt="Hit 2">
+            <div class="hit-details">
+                <h3>Hit Title 2</h3>
+                <p>Hit Description 2. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+        </div>
+        <!-- Add more hits as needed -->
     </div>
-    
-    <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/_SW1j6ZAP_g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-    
-    <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/Sfx5hkKG8pw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-</div>
 
+    <div class="out-now-block">
+        <h2 class="blink-red">Out Now</h2>
+        <div class="out-now-item">
+            <img src="outnow1.jpg" alt="Out Now 1">
+            <div class="out-now-details">
+                <h3>Out Now Title 1</h3>
+                <p>Out Now Description 1. Aliqua ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                <a href="outnow1-details.html">More Details</a>
+            </div>
+        </div>
+        <div class="out-now-item">
+            <img src="outnow2.jpg" alt="Out Now 2">
+            <div class="out-now-details">
+                <h3>Out Now Title 2</h3>
+                <p>Out Now Description 2. Dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+                <a href="outnow2-details.html">More Details</a>
+            </div>
+        </div>
+        <!-- Add more out now releases as needed -->
+    </div>
 
     <footer>
         <p>&copy; 2024 RTB GANG RECORDS. All rights reserved.</p>
     </footer>
 
-    <script>
+    <script type="text/javascript">
         function toggleMenu() {
-            const mobileNavbar = document.getElementById('mobile-navbar');
-            mobileNavbar.classList.toggle('show');
-            document.querySelector('.hamburger').classList.toggle('active');
+            var hamburger = document.querySelector('.hamburger');
+            var mobileMenu = document.getElementById('mobile-navbar');
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('show');
         }
     </script>
 </body>
