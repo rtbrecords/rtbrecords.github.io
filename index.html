@@ -29,14 +29,17 @@
             align-items: center;
         }
 
-        nav {
-            display: flex;
-            justify-content: flex-end;
-            background-color: #000;
-            padding: 5px 10px;
-            border: 1px solid #ff0000;
-            transition: transform 0.3s ease;
-        }
+       nav {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #000;
+    padding: 5px 10px;
+    border: 1px solid #ff0000;
+    transition: transform 0.3s ease;
+    position: absolute; /* Make the nav position absolute */
+    top: 10px; /* Adjust the top positioning */
+    right: 10px; /* Align to the right */
+}
 
         nav a {
             color: white;
