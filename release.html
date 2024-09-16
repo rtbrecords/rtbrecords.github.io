@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="us-ascii"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Releases - RTB GANG RECORDS</title>
-	<style type="text/css">body {
+<head>
+    <meta charset="us-ascii">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Releases - RTB GANG RECORDS</title>
+    <style type="text/css">
+        body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -169,6 +172,9 @@
             text-align: center;
             padding: 20px;
             border-top: 3px solid #ff0000;
+            width: 100%;
+            position: relative;
+            bottom: 0;
         }
 
         /* Responsive design */
@@ -221,42 +227,50 @@
                 text-align: center;
             }
         }
-	</style>
+    </style>
 </head>
 <body>
 <header>
-<div class="hamburger" onclick="toggleMenu()">
-<div></div>
+    <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
 
-<div></div>
-
-<div></div>
-</div>
-
-<nav id="navbar"><a href="index.html">Home</a> <a href="release.html">Releases</a> <a href="artist.html">Artists</a> <a href="about.html">About Us</a> <a href="contact.html">Contact Us</a></nav>
+    <nav id="navbar">
+        <a href="index.html">Home</a>
+        <a href="release.html">Releases</a>
+        <a href="artist.html">Artists</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+    </nav>
 </header>
 
 <div class="content">
-<h2><span style="font-size:18px;">Upcoming<span style="color:#e74c3c;">Music</span> Releases</span></h2>
+    <h2><span style="font-size:18px;">Upcoming<span style="color:#e74c3c;">Music</span> Releases</span></h2>
 
-<div class="releases">
-<div class="release"><img alt="Release 1" src="release1.jpg" />
-<h3><a href="release1-details.html">Samade - Alien (Audio)</a></h3>
-</div>
+    <div class="releases">
+        <div class="release">
+            <img alt="Release 1" src="release1.jpg" />
+            <h3><a href="release1-details.html">Samade - Alien (Audio)</a></h3>
+        </div>
 
-<div class="release"><img alt="Release 2" src="release2.jpg" />
-<h3><a href="release2-details.html">Finesse ft Beybah - Rey (Audio)</a></h3>
-</div>
-
+        <div class="release">
+            <img alt="Release 2" src="release2.jpg" />
+            <h3><a href="release2-details.html">Finesse ft Beybah - Rey (Audio)</a></h3>
+        </div>
+    </div>
 </div>
 
 <footer>
-<p>&copy; 2024 RTB GANG RECORDS. All rights reserved.</p>
+    <p>&copy; 2024 RTB GANG RECORDS. All rights reserved.</p>
 </footer>
+
 <script>
     function toggleMenu() {
         const navbar = document.getElementById('navbar');
         navbar.classList.toggle('show');
     }
-</script></body>
+</script>
+</body>
 </html>
