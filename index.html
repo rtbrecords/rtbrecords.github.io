@@ -158,6 +158,21 @@
             border-radius: 10px;
         }
 
+        .link-container {
+  display: flex;
+  align-items: center;
+}
+
+.link-icon {
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+#link-message {
+  color: green;
+  font-size: 12px;
+}
+
         @keyframes pulse {
             0% { transform: scale(1); }
             50% { transform: scale(1.1); }
@@ -356,18 +371,21 @@
                   <a href="https://push.fm/fl/MGBRLtDI" class="Listen Now!">Listen Now!</a>
                 </p>
                 <p>Hip hop/ Rap Song</p>
+            
+            <div class="link-container">
+           <span class="link-icon" onclick="copyToClipboard('https://open.spotify.com/track/1j4ygrJsDSGDNNBfMVM42t?si=17iS4kHnS3KINtfddHTxuw')">🔗</span>
+           <p id="Listen on Spotify" style="display: none;">Link copied!</p>    
+           </div>
+ 
+
+
+
+            
             </div>
-            <!-- Hot Links Block -->
-<div class="hot-links">
-    <h3>Hot Links</h3>
-    <ul>
-        <li><a href="#" onclick="copyLink('https://open.spotify.com/track/1j4ygrJsDSGDNNBfMVM42t?si=17iS4kHnS3KINtfddHTxuw')">Spotify</a></li>
-        <li><a href="#" onclick="copyLink('https://www.boomplay.com/artists/98075154')">Boomplay</a></li>
-        <li><a href="#" onclick="copyLink('https://push.fm/fl/MGBRLtDI')">Other Platforms</a></li>
-    </ul>
-    <p id="link-copied-message" style="display:none; color: green;">Link copied!</p>
-</div>
         
+       
+
+     
 
         </div>
 
@@ -415,17 +433,28 @@
             document.querySelector('.hamburger').classList.toggle('active');
         }
 
-          function copyLink(link) {
-        navigator.clipboard.writeText(link).then(function() {
-            var message = document.getElementById('link-copied-message');
-            message.style.display = 'block';
-            setTimeout(function() {
-                message.style.display = 'none';
-            }, 2000);
-        }, function(err) {
-            console.error('Could not copy text: ', err);
-        });
-    }
+          function copyToClipboard(link) {
+  // Create a temporary input to store the link
+  var tempInput = document.createElement("input");
+  tempInput.value = link;
+  document.body.appendChild(tempInput);
+  
+  // Select and copy the link
+  tempInput.select();
+  document.execCommand("copy");
+  
+  // Remove the temporary input
+  document.body.removeChild(tempInput);
+  
+  // Display the 'Link copied!' message
+  var message = document.getElementById("link-message");
+  message.style.display = "inline";
+  
+  // Hide the message after 2 seconds
+  setTimeout(function() {
+    message.style.display = "none";
+  }, 2000);
+}
     </script>
 </body>
 </html>
