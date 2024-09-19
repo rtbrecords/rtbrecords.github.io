@@ -428,25 +428,29 @@
             document.querySelector('.hamburger').classList.toggle('active');
         }
 
-  document.addEventListener("DOMContentLoaded", function() {
-    // Your copyToClipboard function here
-          function copyToClipboard(link) {
-      var tempInput = document.createElement("input");
-      tempInput.value = link;
-      document.body.appendChild(tempInput);
-      tempInput.select();
-      document.execCommand("copy");
-      document.body.removeChild(tempInput);
-  
-      var message = document.getElementById("link-message");
-      message.style.display = "inline";
-  
-      setTimeout(function() {
-        message.style.display = "none";
-      }, 2000);
-    }
+function copyToClipboard(url) {
+            // Create a temporary input element
+            const tempInput = document.createElement("input");
+            tempInput.value = url;
+            document.body.appendChild(tempInput);
 
-  });        
+            // Select the input value and copy to clipboard
+            tempInput.select();
+            tempInput.setSelectionRange(0, 99999); // For mobile devices
+            document.execCommand("copy");
+
+            // Remove the temporary input
+            document.body.removeChild(tempInput);
+
+            // Display the "Link copied!" message
+            const message = document.getElementById("link-message");
+            message.style.display = "block";
+
+            // Hide the message after 3 seconds
+            setTimeout(() => {
+                message.style.display = "none";
+            }, 3000);
+        }
     </script>
 </body>
 </html>
