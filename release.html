@@ -14,7 +14,8 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            overflow-x: hidden; /* Removes horizontal scroll */
+            overflow-x: hidden; /* Prevents horizontal scrolling */
+            box-sizing: border-box;
         }
 
         header {
@@ -26,6 +27,8 @@
             z-index: 1000;
             display: flex;
             justify-content: flex-end;
+            box-sizing: border-box;
+            width: 100%;
         }
 
         nav {
@@ -35,6 +38,8 @@
             padding: 5px 10px;
             border: 1px solid #ff0000;
             transition: transform 0.3s ease;
+            box-sizing: border-box;
+            width: 100%; /* Makes sure nav doesn't overflow */
         }
 
         nav a {
@@ -72,9 +77,9 @@
             flex-direction: column;
             align-items: center;
             text-align: center;
-            padding: 40px;
+            padding: 20px;
             animation: fadeIn 2s ease-in-out;
-            max-width: 100%; /* Prevents overflow */
+            max-width: 100%;
             box-sizing: border-box;
         }
 
@@ -84,7 +89,7 @@
         }
 
         .content h2 {
-            font-size: 3em;
+            font-size: 2em;
             color: #000;
             text-transform: uppercase;
             letter-spacing: 5px;
@@ -120,11 +125,12 @@
             text-align: center;
             transition: transform 0.3s, box-shadow 0.3s;
             max-width: 300px;
-            flex: 1 1 calc(33% - 40px);
+            flex: 1 1 calc(100% - 40px); /* Ensures release takes full width on mobile */
             margin: 10px;
             border: none;
             height: auto;
             animation: float 3s ease-in-out infinite;
+            box-sizing: border-box;
         }
 
         @keyframes float {
@@ -179,6 +185,7 @@
             width: 100%;
             position: relative;
             bottom: 0;
+            box-sizing: border-box;
         }
 
         /* Responsive design */
@@ -210,16 +217,17 @@
             }
 
             .content h2 {
-                font-size: 2em;
+                font-size: 1.5em;
             }
 
             .releases {
                 flex-direction: column;
                 align-items: center;
+                gap: 10px;
             }
 
             .release {
-                max-width: 100%;
+                max-width: 100%; /* Makes sure the release fits within the screen */
                 margin-bottom: 20px;
             }
 
@@ -277,14 +285,10 @@
 </div>
 
 <footer>
-    <p>&copy; 2024 RTB GANG RECORDS. All rights reserved.</p>
-</footer>
+    <p>&copy
+; 2024 RTB GANG RECORDS. All Rights Reserved.</p>
 
-<script>
-    function toggleMenu() {
-        const navbar = document.getElementById('navbar');
-        navbar.classList.toggle('show');
-    }
+</footer> <script> function toggleMenu() { const nav = document.getElementById('navbar'); nav.classList.toggle('show'); } 
 </script>
 </body>
 </html>
