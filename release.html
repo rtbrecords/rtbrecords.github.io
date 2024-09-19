@@ -14,6 +14,7 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            overflow-x: hidden; /* Removes horizontal scroll */
         }
 
         header {
@@ -73,6 +74,8 @@
             text-align: center;
             padding: 40px;
             animation: fadeIn 2s ease-in-out;
+            max-width: 100%; /* Prevents overflow */
+            box-sizing: border-box;
         }
 
         @keyframes fadeIn {
@@ -102,6 +105,7 @@
             justify-content: center;
             width: 100%;
             animation: fadeInUp 2s ease-in-out;
+            box-sizing: border-box;
         }
 
         @keyframes fadeInUp {
@@ -115,8 +119,8 @@
             padding: 10px;
             text-align: center;
             transition: transform 0.3s, box-shadow 0.3s;
-            max-width: 250px;
-            flex: 1 1 calc(33% - 20px);
+            max-width: 300px;
+            flex: 1 1 calc(33% - 40px);
             margin: 10px;
             border: none;
             height: auto;
@@ -156,14 +160,14 @@
         }
 
         .release a {
-            color: #fff; /* White color for the names */
+            color: #fff;
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s;
         }
 
         .release a:hover {
-            color: #ff0000; /* Red color on hover */
+            color: #ff0000;
         }
 
         footer {
