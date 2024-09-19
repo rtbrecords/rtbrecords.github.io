@@ -357,6 +357,18 @@
                 </p>
                 <p>Hip hop/ Rap Song</p>
             </div>
+            <!-- Hot Links Block -->
+<div class="hot-links">
+    <h3>Hot Links</h3>
+    <ul>
+        <li><a href="#" onclick="copyLink('https://example.com/link1')">Spotify</a></li>
+        <li><a href="#" onclick="copyLink('https://example.com/link2')">Apple Music</a></li>
+        <li><a href="#" onclick="copyLink('https://example.com/link3')">YouTube</a></li>
+    </ul>
+    <p id="link-copied-message" style="display:none; color: green;">Link copied!</p>
+</div>
+        
+
         </div>
 
         <div class="release-item">
@@ -402,6 +414,18 @@
             mobileNavbar.classList.toggle('show');
             document.querySelector('.hamburger').classList.toggle('active');
         }
+
+          function copyLink(link) {
+        navigator.clipboard.writeText(link).then(function() {
+            var message = document.getElementById('link-copied-message');
+            message.style.display = 'block';
+            setTimeout(function() {
+                message.style.display = 'none';
+            }, 2000);
+        }, function(err) {
+            console.error('Could not copy text: ', err);
+        });
+    }
     </script>
 </body>
 </html>
