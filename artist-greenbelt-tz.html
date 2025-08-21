@@ -7,16 +7,17 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
   <style>
     body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #FFFFFF;
-  color: #000;
-  overflow-x: hidden;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;  /* This ensures the body takes at least the full viewport height */
-}
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #FFFFFF;
+      color: #000;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    
     header {
       background-color: #000;
       padding: 10px;
@@ -54,76 +55,74 @@
       color: #fff;
     }
 
-/* Hamburger Menu Styling */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            padding: 5px;
-            background-color: #000;
-            border: 2px solid #ff0000;
-        }
+    /* Hamburger Menu Styling */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      padding: 5px;
+      background-color: #000;
+      border: 2px solid #ff0000;
+    }
 
-        .hamburger div {
-            width: 25px;
-            height: 3px;
-            background-color: #fff;
-            margin: 4px 0;
-            transition: 0.3s;
-        }
+    .hamburger div {
+      width: 25px;
+      height: 3px;
+      background-color: #fff;
+      margin: 4px 0;
+      transition: 0.3s;
+    }
 
-        .hamburger.active div:nth-child(1) {
-            transform: rotate(-45deg) translate(-5px, 6px);
-        }
+    .hamburger.active div:nth-child(1) {
+      transform: rotate(-45deg) translate(-5px, 6px);
+    }
 
-        .hamburger.active div:nth-child(2) {
-            opacity: 0;
-        }
+    .hamburger.active div:nth-child(2) {
+      opacity: 0;
+    }
 
-        .hamburger.active div:nth-child(3) {
-            transform: rotate(45deg) translate(-5px, -6px);
-        }
+    .hamburger.active div:nth-child(3) {
+      transform: rotate(45deg) translate(-5px, -6px);
+    }
 
-        /* Mobile nav menu */
-        nav.mobile-menu {
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: #000;
-            transform: translateX(100%);
-            z-index: 999;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            transition: transform 0.3s ease;
-        }
+    /* Mobile nav menu */
+    nav.mobile-menu {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #000;
+      transform: translateX(100%);
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
 
-        nav.mobile-menu.show {
-            transform: translateX(0);
-        }
+    nav.mobile-menu.show {
+      transform: translateX(0);
+    }
 
-        nav.mobile-menu a {
-            margin: 10px;
-            padding: 15px 20px;
-            color: #fff;
-            font-size: 1.5em;
-            text-align: center;
-        }
+    nav.mobile-menu a {
+      margin: 10px;
+      padding: 15px 20px;
+      color: #fff;
+      font-size: 1.5em;
+      text-align: center;
+    }
 
-
-
-   .artist-page {
-  flex-grow: 1;  /* This makes the artist page take up the remaining space */
-  padding: 40px;
-  text-align: center;
-  background: linear-gradient(135deg, #1e1e1e, #ff0000);
-  border-radius: 10px;
-  margin: 40px 10%;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-}
+    .artist-page {
+      flex-grow: 1;
+      padding: 40px;
+      text-align: center;
+      background: linear-gradient(135deg, #1e1e1e, #ff0000);
+      border-radius: 10px;
+      margin: 40px 10%;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    }
 
     .artist-page h1 {
       font-size: 2.5rem;
@@ -184,74 +183,118 @@
       font-size: 1rem;
     }
 
-    .copied-message {
+    /* Modal styles */
+    .modal {
       display: none;
-      color: green;
-      margin-top: 10px;
-      font-size: 1.2rem;
+      position: fixed;
+      z-index: 1001;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      align-items: center;
+      justify-content: center;
     }
 
-    .show {
-      display: block;
+    .modal-content {
+      background-color: #1e1e1e;
+      margin: auto;
+      padding: 20px;
+      border: 2px solid #ff0000;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 600px;
+      max-height: 80vh;
+      overflow-y: auto;
+      text-align: center;
     }
-    
+
+    .close {
+      color: #fff;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #ff0000;
+    }
+
+    .embed-container {
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    .embed-container iframe {
+      width: 100%;
+      height: 352px;
+      border-radius: 12px;
+    }
+
     @media only screen and (max-width: 768px) {
-   
-   /* Mobile styles */
-        @media (max-width: 768px) {
-            nav {
-                display: none;
-            }
-
-            .hamburger {
-                display: flex;
-                position: absolute;
-                top: 10px;
-                right: 10px;
-            }
-            .music-links {
-    flex-direction: column; /* Stack vertically */
-    align-items: center; /* Center align buttons */
-    gap: 15px; /* Space between buttons */
-  }
-
-  .music-links button {
-    width: 80%; /* Make buttons take up 80% of the width */
-    padding: 12px 0; /* Adjust padding for better touch targets */
-  }
-
-  /* Mobile Styles - Increase size of the artist page */
-  .artist-page {
-    padding: 20px; /* Increase padding for mobile */
-    margin: 20px 5%; /* Decrease margin for more space */
-    overflow: hidden;
-    padding-left: 20px;
-  }
-
-  .artist-page h1 {
-    font-size: 2rem; /* Increase font size for mobile */
-    margin-bottom: 20px; /* More space below the title */
-  }
-
-  .artist-page img {
-    width: 250px; /* Increase image size on mobile */
-    height: 250px; /* Increase image size on mobile */
-  }
+      @media (max-width: 768px) {
+        nav {
+          display: none;
         }
-    
+
+        .hamburger {
+          display: flex;
+          position: absolute;
+          top: 10px;
+          right: 10px;
+        }
+        
+        .music-links {
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+        }
+
+        .music-links button {
+          width: 80%;
+          padding: 12px 0;
+        }
+
+        .artist-page {
+          padding: 20px;
+          margin: 20px 5%;
+          overflow: hidden;
+          padding-left: 20px;
+        }
+
+        .artist-page h1 {
+          font-size: 2rem;
+          margin-bottom: 20px;
+        }
+
+        .artist-page img {
+          width: 250px;
+          height: 250px;
+        }
+        
+        .modal-content {
+          width: 90%;
+          padding: 15px;
+        }
+        
+        .embed-container iframe {
+          height: 250px;
+        }
+      }
+    }
   </style>
-<!--</head>
-<body data-new-gr-c-s-loaded="14.1196.0">
+</head>
+<body>
 <header>
 <div class="hamburger" onclick="toggleMenu()">
 <div></div>
-
 <div></div>
-
 <div></div>
 </div>
 
-<nav id="navbar">
+<!--<nav id="navbar">
 	<a href="index.html">Home</a>
 	<a href="release.html">Releases</a> 
 	<a href="artist.html">Artists</a> 
@@ -269,97 +312,106 @@
 	<a href="contact.html">Contact Us</a>
 	<a href="#Beats for sale">Beats for Sale</a>
 	<a href="Songs.html">Songs</a>
-</nav>
-</header> -->
-
+</nav> -->
+</header>
 
   <div class="artist-page">
     <h1>Greenbelt TZ Hot Release!</h1>
-    <img src="Richard-cover.jpg" alt="Greenbelt TZ"> <!-- Replace with your artist's image -->
+    <img src="Richard-cover.jpg" alt="Greenbelt TZ">
     
     <div class="music-links">
-        
-        <!-- Spotify -->
-        
-      <button class="spotify" onclick="copyToClipboard('<iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/7LwDvWMmcto8YXEY1Ydy7C?utm_source=generator" width="50%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>')">
+      <!-- Spotify -->
+      <button onclick="showEmbed('spotify')">
         <i class="fab fa-spotify"></i> Listen on Spotify
       </button>
       
       <!-- Boomplay -->
-      
-      <button class="boomplay" onclick="copyToClipboard('https://www.boomplay.com/songs/192601212?srModel=COPYLINK&srList=WEB')">
+      <button onclick="showEmbed('boomplay')">
         <i class="fas fa-music"></i> Listen on Boomplay
       </button>
       
-        <!-- Audiomack -->
-        
-        <button class="boomplay" onclick="copyToClipboard('https://audiomack.com/treasure-tyler/song/december')">
+      <!-- Audiomack -->
+      <button onclick="showEmbed('audiomack')">
         <i class="fas fa-music"></i> Listen on Audiomack
       </button>
 
-		<!-- Youtube -->
-		<button class="boomplay" onclick="copyToClipboard('https://audiomack.com/treasure-tyler/song/december')">
-        <i class="fas fa-music"></i> Listen on Youtube Music
+      <!-- Youtube -->
+      <button onclick="showEmbed('youtube')">
+        <i class="fab fa-youtube"></i> Listen on YouTube
       </button>
-        
-        
-        <!-- Other Platforms -->
-        
       
-      <button class="other" onclick="copyToClipboard('https://push.fm/fl/AAva7QVz')">
-        <i class="fas fa-link"></i> Listen on Other Platforms
+      <!-- Other Platforms -->
+      <button onclick="showEmbed('other')">
+        <i class="fas fa-link"></i> Other Platforms
       </button>
     </div>
   </div>
 
+  <!-- Modal for embedded content -->
+  <div id="embedModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <div id="embedContent" class="embed-container">
+        <!-- Embedded content will be inserted here -->
+      </div>
+    </div>
+  </div>
 
   <footer>
     <p>&copy; 2025 RTB RECORDS. All rights reserved.</p>
   </footer>
 
   <script>
-    function copyToClipboard(link) {
-      const tempInput = document.createElement("textarea");
-      tempInput.value = link;
-      document.body.appendChild(tempInput);
-      tempInput.select();
-      document.execCommand("copy");
-      document.body.removeChild(tempInput);
-
-      const copiedMessage = document.createElement('div');
-      copiedMessage.textContent = "Link copied!";
-      copiedMessage.classList.add('copied-message');
-      document.body.appendChild(copiedMessage);
-      copiedMessage.classList.add('show');
-      setTimeout(() => copiedMessage.classList.remove('show'), 2000);
+    // Function to show the embedded player
+    function showEmbed(platform) {
+      const modal = document.getElementById('embedModal');
+      const embedContent = document.getElementById('embedContent');
+      
+      // Clear previous content
+      embedContent.innerHTML = '';
+      
+      // Add content based on platform
+      switch(platform) {
+        case 'spotify':
+          embedContent.innerHTML = '<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7LwDvWMmcto8YXEY1Ydy7C?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>';
+          break;
+        case 'boomplay':
+          embedContent.innerHTML = '<div style="width:100%;height:300px;background-color:#1e1e1e;display:flex;align-items:center;justify-content:center;color:white;border-radius:12px;"><p>Boomplay embed would go here</p><p>Direct link: <a href="<iframe src="https://www.boomplay.com/embed/214034404/MUSIC?colType=5&colID=114996650" width="300" height="250" frameborder="0"></iframe>" style="color:#ff0000;" target="_blank">Open in Boomplay</a></p></div>';
+          break;
+        case 'audiomack':
+          embedContent.innerHTML = '<iframe src="https://embed.audiomack.com/treasure-tyler/december" scrolling="no" width="100%" height="252" scrollbars="no" frameborder="0" style="border-radius:12px;"></iframe>';
+          break;
+        case 'youtube':
+          embedContent.innerHTML = '<iframe width="560" height="315" src="https://www.youtube.com/embed/-wnPlmVvQz8?si=Oj6zLfLmH2y54Lqv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
+          break;
+        case 'other':
+          embedContent.innerHTML = '<div style="width:100%;height:200px;background-color:#1e1e1e;display:flex;flex-direction:column;align-items:center;justify-content:center;color:white;border-radius:12px;"><p>Available on various platforms</p><a href="https://push.fm/fl/AAva7QVz" style="color:#ff0000;margin-top:10px;" target="_blank">View all platforms</a></div>';
+          break;
+      }
+      
+      // Show the modal
+      modal.style.display = "flex";
     }
     
-  
-        function toggleMenu() {
-            const mobileNavbar = document.getElementById('mobile-navbar');
-            mobileNavbar.classList.toggle('show');
-            document.querySelector('.hamburger').classList.toggle('active');
-        }
-
-
-   function copyToClipboard(link) {
-            // Create a temporary textarea element to hold the text to be copied
-            const tempInput = document.createElement("textarea");
-            tempInput.value = link;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand("copy");
-            document.body.removeChild(tempInput);
-
-            // Show "Link copied!" message
-            const copiedMessage = document.getElementById('copiedMessage');
-            copiedMessage.classList.add('show');
-
-            // Hide the message after 2 seconds
-            setTimeout(() => {
-                copiedMessage.classList.remove('show');
-            }, 2000);
-        }
+    // Function to close the modal
+    function closeModal() {
+      document.getElementById('embedModal').style.display = "none";
+    }
+    
+    // Close modal when clicking outside of it
+    window.onclick = function(event) {
+      const modal = document.getElementById('embedModal');
+      if (event.target == modal) {
+        closeModal();
+      }
+    }
+    
+    // Hamburger menu functionality
+    function toggleMenu() {
+      const mobileNavbar = document.getElementById('mobile-navbar');
+      mobileNavbar.classList.toggle('show');
+      document.querySelector('.hamburger').classList.toggle('active');
+    }
   </script>
 </body>
 </html>
