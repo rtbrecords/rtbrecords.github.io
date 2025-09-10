@@ -221,70 +221,14 @@
         visibility: visible;
       }
 
-      /* Preloader */
-      .preloader {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background-color: var(--primary);
-        z-index: 9999;
-        transition: opacity 0.5s ease;
-      }
-
-      .logo-spinner {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        background: black;
-        animation: spin 2s linear infinite;
-        box-shadow: 0 0 20px var(--accent);
-        margin-bottom: 2rem;
-      }
-
-      @keyframes spin {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-
-      .fire-text {
-        font-size: 1.5rem;
-        color: var(--accent);
-        text-align: center;
-        text-shadow: 0 0 10px var(--accent);
-        font-weight: 600;
-      }
-
-      .content {
-        opacity: 0;
-        transition: opacity 0.5s ease;
-      }
-
-      .content.loaded {
-        opacity: 1;
-      }
-
-      /* Logo Block */
+      /* Logo Block - UPDATED WITH WHITE BACKGROUND */
       .logo-block {
         width: 100%;
         height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
-        background: linear-gradient(
-          to bottom,
-          var(--primary),
-          var(--secondary)
-        );
+        background: #ffffff; /* Changed to white */
         position: relative;
         overflow: hidden;
       }
@@ -306,7 +250,9 @@
         height: auto;
         animation: float 4s ease-in-out infinite;
         z-index: 2;
-        filter: drop-shadow(0 5px 15px rgba(255, 0, 0, 0.5));
+        filter: drop-shadow(
+          0 5px 15px rgba(0, 0, 0, 0.3)
+        ); /* Updated shadow for better visibility on white */
       }
 
       @keyframes float {
@@ -326,7 +272,7 @@
         bottom: 30px;
         left: 50%;
         transform: translateX(-50%);
-        color: var(--text);
+        color: #000000; /* Changed to black for better contrast on white */
         font-size: 0.9rem;
         display: flex;
         flex-direction: column;
@@ -338,6 +284,7 @@
         animation: bounce 2s infinite;
         margin-top: 0.5rem;
         font-size: 1.5rem;
+        color: #000000; /* Changed to black for better contrast on white */
       }
 
       @keyframes bounce {
@@ -828,6 +775,7 @@
         color: var(--text);
         border-radius: 50%;
         transition: var(--transition);
+        text-decoration: none;
       }
 
       .social-links a:hover {
@@ -927,7 +875,7 @@
 
         .footer-content {
           grid-template-columns: 1fr;
-          text-align: center;
+          text-align: left;
         }
 
         .footer-section h3:after {
@@ -936,7 +884,7 @@
         }
 
         .social-links {
-          justify-content: center;
+          justify-content: left;
         }
       }
 
@@ -999,12 +947,6 @@
     </style>
   </head>
   <body>
-    <!-- Preloader -->
-    <div class="preloader">
-      <div class="logo-spinner"></div>
-      <div class="fire-text">Loading RTB GANG RECORDS...</div>
-    </div>
-
     <!-- Header -->
     <header>
       <div class="header-container">
@@ -1050,7 +992,11 @@
     <main class="content">
       <!-- Logo Block -->
       <section class="logo-block">
-        <img src="RTBLOGO-_1_.jpg" alt="RTB GANG RECORDS Logo" loading="eager" />
+        <img
+          src="rtb-logo.png"
+          alt="RTB GANG RECORDS Logo"
+          loading="eager"
+        />
         <div class="scroll-indicator">
           Scroll to explore
           <i class="fas fa-chevron-down"></i>
@@ -1356,25 +1302,23 @@
         <div class="footer-section">
           <h3>Contact Info</h3>
           <div class="footer-links">
-            <a href="tel:+255123456789"
-              ><i class="fas fa-phone"></i> +255 123 456 789</a
+            <a href="tel:+255 655 599 681"
+              ><i class="fas fa-phone"></i> +255 655 599 681</a
             >
-            <a href="mailto:info@rtbgangrecords.com"
-              ><i class="fas fa-envelope"></i> info@rtbgangrecords.com</a
+            <a href="tel:+255 687 691 144"
+              ><i class="fas fa-phone"></i> +255 687 691 144</a
+            >
+            <a href="tel:+255 656 703 081"
+              ><i class="fas fa-phone"></i> +255 656 703 081</a
+            >
+            
+            <a href="mailto:khaliiwiz67@gmail.com"
+              ><i class="fas fa-envelope"></i> khaliiwiz67@gmail.com</a
             >
             <a href="#"
               ><i class="fas fa-map-marker-alt"></i> Dar es Salaam, Tanzania</a
             >
           </div>
-        </div>
-
-        <div class="footer-section">
-          <h3>Newsletter</h3>
-          <p>Subscribe to get updates on new releases and events</p>
-          <form class="newsletter-form">
-            <input type="email" placeholder="Your email address" required />
-            <button type="submit">Subscribe</button>
-          </form>
         </div>
       </div>
 
@@ -1391,16 +1335,6 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script>
-      // Preloader
-      window.addEventListener("load", function () {
-        setTimeout(function () {
-          document.querySelector(".preloader").style.opacity = "0";
-          document.querySelector(".content").classList.add("loaded");
-          setTimeout(function () {
-            document.querySelector(".preloader").style.display = "none";
-          }, 500);
-        }, 2000);
-      });
 
       // Mobile Menu Toggle
       function toggleMenu() {
