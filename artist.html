@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="us-ascii"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Our Artists - RTB GANG RECORDS</title>
-	<style type="text/css">body {
+  <head>
+    <meta charset="us-ascii" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Artists - RTB GANG RECORDS</title>
+    <style type="text/css">
+      body {
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
-        background-color: #FFFFFF;
+        background-color: #ffffff;
         color: #000;
         display: flex;
         flex-direction: column;
         min-height: 100vh;
-    }
+      }
 
-    header {
+      header {
         background-color: #000;
         padding: 10px;
         border-bottom: 3px solid #ff0000;
@@ -22,9 +25,9 @@
         z-index: 1000;
         display: flex;
         justify-content: flex-end;
-    }
+      }
 
-    nav {
+      nav {
         display: flex;
         justify-content: flex-end;
         background-color: #000;
@@ -32,38 +35,38 @@
         position: relative;
         border: 1px solid #ff0000;
         transition: transform 0.3s ease;
-    }
+      }
 
-    nav a {
+      nav a {
         color: white;
         text-decoration: none;
         padding: 5px 10px;
         font-weight: bold;
         transition: background-color 0.3s;
-    }
+      }
 
-    nav a:hover {
+      nav a:hover {
         background-color: #ff0000;
         color: #fff;
-    }
+      }
 
-    .hamburger {
+      .hamburger {
         display: none;
         flex-direction: column;
         cursor: pointer;
         padding: 5px;
         background-color: #000;
         border: 2px solid #ff0000;
-    }
+      }
 
-    .hamburger div {
+      .hamburger div {
         width: 25px;
         height: 3px;
         background-color: #fff;
         margin: 4px 0;
-    }
+      }
 
-    .content {
+      .content {
         flex-grow: 1;
         display: flex;
         flex-direction: column;
@@ -71,28 +74,36 @@
         text-align: center;
         padding: 40px;
         animation: fadeIn 2s ease-in-out;
-    }
+      }
 
-    @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
-    }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
 
-    .content h2 {
+      .content h2 {
         font-size: 3em;
         color: #000;
         text-transform: uppercase;
         letter-spacing: 5px;
         border-bottom: 3px solid #ff0000;
         animation: slideIn 2s ease-in-out;
-    }
+      }
 
-    @keyframes slideIn {
-        from { transform: translateX(-100%); }
-        to { transform: translateX(0); }
-    }
+      @keyframes slideIn {
+        from {
+          transform: translateX(-100%);
+        }
+        to {
+          transform: translateX(0);
+        }
+      }
 
-    .artists {
+      .artists {
         margin-top: 20px;
         display: flex;
         flex-wrap: wrap;
@@ -100,14 +111,20 @@
         justify-content: center;
         width: 100%;
         animation: fadeInUp 2s ease-in-out;
-    }
+      }
 
-    @keyframes fadeInUp {
-        from { transform: translateY(50px); opacity: 0; }
-        to { transform: translateY(0); opacity: 1; }
-    }
+      @keyframes fadeInUp {
+        from {
+          transform: translateY(50px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
 
-    .artist {
+      .artist {
         background-color: #000;
         color: #fff;
         padding: 10px;
@@ -119,52 +136,59 @@
         border: none;
         height: auto;
         animation: float 3s ease-in-out infinite;
-    }
+      }
 
-    @keyframes float {
-        0%, 100% {
-            transform: translateY(0);
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
         }
         50% {
-            transform: translateY(-10px);
+          transform: translateY(-10px);
         }
-    }
+      }
 
-    .artist img {
+      .artist img {
         width: 100%;
         height: auto;
         border-bottom: 3px solid #ff0000;
         margin-bottom: 10px;
-    }
+      }
 
-    .artist:hover {
+      .artist:hover {
         transform: translateY(-10px);
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-    }
+      }
 
-    .artist h3 {
+      .artist h3 {
         font-size: 1.5em;
         margin-bottom: 10px;
         animation: zoomIn 2s ease-in-out;
-    }
+      }
 
-    @keyframes zoomIn {
-        from { transform: scale(0.5); opacity: 0; }
-        to { transform: scale(1); opacity: 1; }
-    }
+      @keyframes zoomIn {
+        from {
+          transform: scale(0.5);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
 
-    .artist a {
+      .artist a {
         color: #fff; /* White color for the names */
         text-decoration: none;
         font-weight: bold;
         transition: color 0.3s;
-    }
+      }
 
-    .artist a:hover {
+      .artist a:hover {
         color: #ff0000; /* Red color on hover */
-    }
+      }
 
-    .ceo-artist {
+      .ceo-artist {
         width: 100%;
         max-width: 300px;
         margin-bottom: 30px; /* Space below the CEO artist block */
@@ -175,195 +199,185 @@
         transition: transform 0.3s, box-shadow 0.3s;
         border: none;
         animation: float 3s ease-in-out infinite;
-    }
+      }
 
-    .ceo-artist img {
+      .ceo-artist img {
         width: 100%;
         height: auto;
         border-bottom: 3px solid #ff0000;
         margin-bottom: 10px;
-    }
+      }
 
-    .ceo-artist a {
+      .ceo-artist a {
         color: #fff; /* White color for CEO name */
         text-decoration: none;
         font-weight: bold;
         transition: color 0.3s;
-    }
+      }
 
-    .ceo-artist a:hover {
+      .ceo-artist a:hover {
         color: #ff0000; /* Red color on hover */
-    }
+      }
 
-    .ceo-artist p {
+      .ceo-artist p {
         color: #fff; /* White color for CEO title */
         margin: 10px 0;
-    }
+      }
 
-    footer {
+      footer {
         background-color: #000;
         color: white;
         text-align: center;
         padding: 20px;
         border-top: 3px solid #ff0000;
-    }
+      }
 
-    /* Responsive design */
-    @media (max-width: 768px) {
+      /* Responsive design */
+      @media (max-width: 768px) {
         nav {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 100vw;
-            height: 100vh;
-            background-color: #000;
-            z-index: 9999;
-            transform: translateX(100%);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          position: fixed;
+          top: 0;
+          right: 0;
+          width: 100vw;
+          height: 100vh;
+          background-color: #000;
+          z-index: 9999;
+          transform: translateX(100%);
         }
 
         nav.show {
-            transform: translateX(0);
+          transform: translateX(0);
         }
 
         .hamburger {
-            display: flex;
-            position: absolute;
-            top: 10px;
-            right: 10px;
+          display: flex;
+          position: absolute;
+          top: 10px;
+          right: 10px;
         }
 
         .content h2 {
-            font-size: 2em;
+          font-size: 2em;
         }
 
         .artists {
-            flex-direction: column;
-            align-items: center;
+          flex-direction: column;
+          align-items: center;
         }
 
         .artist {
-            max-width: 100%;
-            margin-bottom: 20px;
+          max-width: 100%;
+          margin-bottom: 20px;
         }
 
         nav a {
-            margin: 10px;
-            padding: 15px 20px;
-            color: #fff;
-            font-size: 1.5em;
-            text-align: center;
+          margin: 10px;
+          padding: 15px 20px;
+          color: #fff;
+          font-size: 1.5em;
+          text-align: center;
         }
-    }
-	</style>
-</head>
-<body>
-<header>
-<div class="hamburger" onclick="toggleMenu()">
-<div></div>
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
 
-<div></div>
+        <div></div>
 
-<div></div>
-</div>
+        <div></div>
+      </div>
 
-<nav id="navbar"><a href="index.html">Home</a> <a href="release.html">Releases</a> <a href="artist.html">Artists</a> <a href="about.html">About Us</a> <a href="contact.html">Contact Us</a></nav>
-</header>
+      <nav id="navbar">
+        <a href="index.html">Home</a> <a href="release.html">Releases</a>
+        <a href="artist.html">Artists</a> <a href="about.html">About Us</a>
+        <a href="contact.html">Contact Us</a>
+      </nav>
+    </header>
 
-<div class="content">
-<h2><span style="font-size:18px;">Our <span style="color:#e74c3c;">Artists</span> &amp; <span style="color:#e74c3c;">Members</span></span></h2>
-<!-- CEO artist block centered at the top -->
+    <div class="content">
+      <h2>
+        <span style="font-size: 18px"
+          >Our <span style="color: #e74c3c">Artists</span> &amp;
+          <span style="color: #e74c3c">Members</span></span
+        >
+      </h2>
+      <!-- CEO artist block centered at the top -->
 
-<div class="ceo-artist"><img alt="Artist 1 Picture" src="artist1.jpg" />
-<h3><a href="artist1-details.html">Khalii Wiz</a></h3>
+      <div class="ceo-artist">
+        <img alt="Artist 1 Picture" src="artist1.jpg" />
+        <h3><a href="artist1-details.html">Khalii Wiz</a></h3>
 
-<p>CEO &amp; Artist</p>
-</div>
-<!-- Regular artist blocks -->
+        <p>CEO &amp; Artist</p>
+      </div>
+      <!-- Regular artist blocks -->
 
-<div class="artists">
-<div class="artist"><img alt="Artist 2 Picture" src="artist2.jpg" />
-<h3><a href="artist2-details.html">Tacy</a></h3>
+      <div class="artists">
+        <div class="artist">
+          <img alt="Artist 2 Picture" src="artist2.jpg" />
+          <h3><a href="artist2-details.html">Tacy</a></h3>
 
-<p>Artist</p>
-</div>
+          <p>Artist</p>
+        </div>
 
-<div class="artist"><img alt="Artist 3 Picture" src="sharkman.jpg" />
-<h3><a href="artist3-details.html">Shark Man</a></h3>
+        <div class="artist">
+          <img alt="Artist 3 Picture" src="sharkman.jpg" />
+          <h3><a href="artist3-details.html">Shark Man</a></h3>
 
-<p>Artist</p>
-</div>
+          <p>Artist</p>
+        </div>
 
-<div class="artist"><img alt="Artist 4 Picture" src="artist4.jpg" />
-<h3><a href="artist4-details.html">Samade</a></h3>
+        <div class="artist">
+          <img alt="Artist 4 Picture" src="artist4.jpg" />
+          <h3><a href="artist4-details.html">Samade</a></h3>
 
-<p>Artist</p>
-	
-</div>
+          <p>Artist</p>
+        </div>
 
-<div class="artist"><img alt="Artist 5 Picture" src="artist5.jpg" />
-<h3><a href="artist5-details.html">Beybah</a></h3>
+        <div class="artist">
+          <img alt="Artist 9 Picture" src="artist9.jpg" />
+          <h3><a href="artist9-details.html">Treasure Tyler</a></h3>
 
-<p>Artist</p>
-	
-</div>
-	
-<div class="artist"><img alt="Artist 8 Picture" src="artist8.jpg" />
-<h3><a href="artist8-details.html">Arch Knowz</a></h3>
+          <p>Artist</p>
+        </div>
 
-<p>Artist</p>
-	
-</div>
+        <div class="artist">
+          <img alt="Artist 6 Picture" src="artist6.jpg" />
+          <h3><a href="artist6-details.html">Numz</a></h3>
 
-<div class="artist"><img alt="Artist 9 Picture" src="artist9.jpg" />
-<h3><a href="artist9-details.html">Treasure Tyler</a></h3>
+          <p>Director &amp; Photographer</p>
+        </div>
 
-<p>Artist</p>
-	
-</div>
+        <div class="artist">
+          <img alt="CNO Oveira Picture" src="CNO.jpg" />
+          <h3><a href="artist6-details.html">CNO Ovierra</a></h3>
 
+          <p>Music Video Director, Photographer &amp; Artist</p>
+        </div>
 
-<div class="artist"><img alt="The Terio Picture" src="TheTerio.jpg" />
-<h3><a href="artist9-details.html">The Terio</a></h3>
+        <div class="artist">
+          <img alt="Artist 7 Picture" src="artist7.jpg" />
+          <h3><a href="artist7-details.html">Paulwantsomemoney</a></h3>
 
-<p>Artist</p>
-	
-</div>
+          <p>IT &amp; Music Distributor</p>
+        </div>
+      </div>
+    </div>
 
-	
-	
-<div class="artist"><img alt="Artist 6 Picture" src="artist6.jpg" />
-<h3><a href="artist6-details.html">Numz</a></h3>
-
-<p>Director &amp; Photographer</p>
-</div>
-
-	
-<div class="artist"><img alt="CNO Oveira Picture" src="CNO.jpg" />
-<h3><a href="artist6-details.html">CNO Ovierra</a></h3>
-
-<p>Music Video Director, Photographer &amp; Artist</p>
-</div>
-
-
-<div class="artist"><img alt="Artist 7 Picture" src="artist7.jpg" />
-<h3><a href="artist7-details.html">Paulwantsomemoney</a></h3>
-
-<p>IT &amp; Music Distributor</p>
-</div>
-</div>
-</div>
-
-<footer>
-<p>&copy; 2025 RTB GANG RECORDS. All rights reserved.</p>
-</footer>
-<script>
-    function toggleMenu() {
-        const navbar = document.getElementById('navbar');
-        navbar.classList.toggle('show');
-    }
-</script></body>
+    <footer>
+      <p>&copy; 2025 RTB GANG RECORDS. All rights reserved.</p>
+    </footer>
+    <script>
+      function toggleMenu() {
+        const navbar = document.getElementById("navbar");
+        navbar.classList.toggle("show");
+      }
+    </script>
+  </body>
 </html>
