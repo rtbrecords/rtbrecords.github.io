@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Will You Be My Valentine? 💘</title>
+    <style>
+      :root {
+        --bg1: #0b1020;
+        --bg2: #1b0f2a;
+        --card: #ffffff12;
+        --card2: #ffffff1f;
+        --text: #f7f7fb;
+        --muted: #cdd0e0;
+        --yes1: #ff2e6a;
+        --yes2: #ff6aa2;
+        --no: #ffffff20;
+        --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        color: var(--text);
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial,
+          sans-serif;
+        background: radial-gradient(
+            1200px 600px at 10% 10%,
+            #ff2e6a20 0%,
+            transparent 60%
+          ),
+          radial-gradient(900px 500px at 90% 20%, #8b5cf620 0%, transparent 55%),
+          linear-gradient(135deg, var(--bg1), var(--bg2));
+        overflow: hidden;
+        padding: 18px; /* helps small screens */
+      }
+
+      .card {
+        width: min(920px, 94vw);
+        padding: clamp(18px, 4vw, 32px);
+        border-radius: clamp(16px, 2.5vw, 22px);
+        background: linear-gradient(180deg, var(--card), var(--card2));
+        box-shadow: var(--shadow);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        position: relative;
+        overflow: hidden;
+        min-height: 260px;
+      }
+
+      .glow {
+        position: absolute;
+        inset: -120px -120px auto auto;
+        width: 320px;
+        height: 320px;
+        background: radial-gradient(circle, #ff2e6a35 0%, transparent 70%);
+        filter: blur(10px);
+        pointer-events: none;
+      }
+
+      h1 {
+        margin: 0 0 10px;
+        font-size: clamp(26px, 4vw, 44px);
+        letter-spacing: 0.2px;
+        line-height: 1.1;
+      }
+      p {
+        margin: 0 0 18px;
+        color: var(--muted);
+        font-size: clamp(14px, 1.8vw, 18px);
+        line-height: 1.6;
+        max-width: 52ch;
+      }
+
+      .stage {
+        margin-top: 18px;
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        border: 0;
+        border-radius: 16px;
+        padding: 16px 22px;
+        font-weight: 800;
+        cursor: pointer;
+        transition: transform 0.12s ease, filter 0.12s ease;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
+      }
+      .btn:active {
+        transform: scale(0.98);
+      }
+
+      /* Big YES button */
+      /* YES button — normal & confident */
+      #yesBtn {
+        padding: 14px 22px;
+        font-size: 16px;
+        background: linear-gradient(135deg, var(--yes1), var(--yes2));
+        color: white;
+        box-shadow: 0 12px 26px rgba(255, 46, 106, 0.3);
+        width: fit-content;
+        min-width: 140px;
+      }
+
+      #yesBtn:hover {
+        filter: brightness(1.05);
+        transform: translateY(-1px);
+      }
+
+      /* NO button: small + moves inside card */
+      #noBtn {
+        padding: 10px 14px;
+        font-size: 14px;
+        background: var(--no);
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        position: absolute; /* key: inside .card */
+        right: 22px;
+        bottom: 22px;
+        width: max-content;
+      }
+      #noBtn:hover {
+        transform: translateY(-1px);
+      }
+
+      .hint {
+        margin-top: 10px;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.65);
+      }
+
+      /* Success overlay */
+      .overlay {
+        position: fixed;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        background: rgba(0, 0, 0, 0.35);
+        backdrop-filter: blur(6px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease;
+        z-index: 20;
+        padding: 18px;
+      }
+      .overlay.show {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .modal {
+        width: min(640px, 94vw);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.14),
+          rgba(255, 255, 255, 0.08)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 22px;
+        padding: clamp(18px, 4vw, 28px);
+        text-align: center;
+        box-shadow: var(--shadow);
+        position: relative;
+        overflow: hidden;
+      }
+      .modal h2 {
+        margin: 0 0 8px;
+        font-size: clamp(22px, 3.2vw, 34px);
+      }
+      .modal p {
+        margin: 0 0 14px;
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .close {
+        margin-top: 10px;
+        background: rgba(255, 255, 255, 0.14);
+        color: #fff;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 14px;
+        padding: 12px 16px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      /* Floating hearts */
+      .heart {
+        position: fixed;
+        left: 0;
+        top: 0;
+        font-size: 18px;
+        color: #ff2e2e;
+        pointer-events: none;
+        opacity: 0.95;
+        animation: floatUp linear forwards;
+        text-shadow: 0 10px 25px rgba(255, 0, 0, 0.25);
+        z-index: 30;
+      }
+      @keyframes floatUp {
+        0% {
+          transform: translate(-50%, 0) scale(0.9);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.95;
+        }
+        100% {
+          transform: translate(-50%, -120vh) scale(1.35);
+          opacity: 0;
+        }
+      }
+
+      /* Mobile: stack + give room so NO can move */
+      @media (max-width: 560px) {
+        .stage {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        #yesBtn {
+          width: 100%;
+        }
+        .card {
+          min-height: 330px; /* extra space for dodging */
+        }
+        #noBtn {
+          font-size: 13px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card" id="card">
+      <div class="glow"></div>
+
+      <h1>Mambo AGNESS 💘</h1>
+      <p>
+        Nina swali moja siriazi…
+        <br />
+        <strong>Je utakuwa na mimi siku ya Wapendanao (VALENTINE DAY)..?</strong>
+      </p>
+
+      <div class="stage">
+        <button class="btn" id="yesBtn">NDIYO 😍</button>
+        <!-- NO button is absolutely positioned (inside card) -->
+        <button class="btn" id="noBtn">HAPANA</button>
+      </div>
+
+      <!--<div class="hint">Tip: The “no” button is a liar 😄</div> -->
+    </div>
+
+    <!-- Success overlay -->
+    <div class="overlay" id="overlay">
+      <div class="modal">
+        <h2>Yaaay!! 💖💖💖</h2>
+        <p>You just made me the happiest person. I love you! 😘</p>
+        <button class="close" id="closeBtn">Close</button>
+      </div>
+    </div>
+
+    <script>
+      const card = document.getElementById("card");
+      const noBtn = document.getElementById("noBtn");
+      const yesBtn = document.getElementById("yesBtn");
+      const overlay = document.getElementById("overlay");
+      const closeBtn = document.getElementById("closeBtn");
+
+      // Move NO button somewhere random INSIDE the card
+      function moveNoButton() {
+        const cardRect = card.getBoundingClientRect();
+        const btnRect = noBtn.getBoundingClientRect();
+
+        const pad = 14;
+
+        // Available space inside card (relative coords)
+        const maxLeft = card.clientWidth - btnRect.width - pad;
+        const maxTop = card.clientHeight - btnRect.height - pad;
+
+        const left = Math.random() * (maxLeft - pad) + pad;
+        const top = Math.random() * (maxTop - pad) + pad;
+
+        // Convert to card-relative positioning
+        noBtn.style.left = left + "px";
+        noBtn.style.top = top + "px";
+        noBtn.style.right = "auto";
+        noBtn.style.bottom = "auto";
+      }
+
+      // Desktop: run on hover
+      noBtn.addEventListener("mouseenter", moveNoButton);
+
+      // Mobile: run on touch (prevents click)
+      noBtn.addEventListener(
+        "touchstart",
+        (e) => {
+          e.preventDefault();
+          moveNoButton();
+        },
+        { passive: false }
+      );
+
+      // Also run away if the pointer gets close (desktop fun)
+      document.addEventListener("mousemove", (e) => {
+        const r = noBtn.getBoundingClientRect();
+        const cx = r.left + r.width / 2;
+        const cy = r.top + r.height / 2;
+        const dist = Math.hypot(e.clientX - cx, e.clientY - cy);
+        if (dist < 90) moveNoButton();
+      });
+
+      // Hearts
+      function spawnHeart(x, y) {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.textContent = "❤";
+        heart.style.left = x + "px";
+        heart.style.top = y + "px";
+
+        const duration = Math.random() * 1.8 + 2.2; // 2.2s - 4.0s
+        const size = Math.random() * 18 + 16; // 16 - 34px
+        heart.style.fontSize = size + "px";
+        heart.style.animationDuration = duration + "s";
+
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), duration * 1000);
+      }
+
+      function heartBurst() {
+        const centerX = window.innerWidth / 2;
+        const centerY = window.innerHeight * 0.62;
+
+        for (let i = 0; i < 42; i++) {
+          const jitterX = (Math.random() - 0.5) * 260;
+          const jitterY = (Math.random() - 0.5) * 140;
+          spawnHeart(centerX + jitterX, centerY + jitterY);
+        }
+
+        let count = 0;
+        const stream = setInterval(() => {
+          count++;
+          const jitterX = (Math.random() - 0.5) * 320;
+          spawnHeart(centerX + jitterX, centerY + 80);
+          if (count > 45) clearInterval(stream);
+        }, 60);
+      }
+
+      yesBtn.addEventListener("click", () => {
+        overlay.classList.add("show");
+        heartBurst();
+      });
+
+      closeBtn.addEventListener("click", () =>
+        overlay.classList.remove("show")
+      );
+      overlay.addEventListener("click", (e) => {
+        if (e.target === overlay) overlay.classList.remove("show");
+      });
+
+      // Reposition NO on resize to avoid weird overlaps
+      window.addEventListener("resize", () => {
+        // reset to corner then move once
+        noBtn.style.left = "auto";
+        noBtn.style.top = "auto";
+        noBtn.style.right = "22px";
+        noBtn.style.bottom = "22px";
+      });
+    </script>
+  </body>
+</html>
