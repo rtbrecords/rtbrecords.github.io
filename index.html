@@ -1,464 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RTB GANG RECORDS | Official Artist Hub</title>
+    <meta charset="UTF-8" />
     <meta
-      name="description"
-      content="RTB GANG RECORDS - Premier music label showcasing talented artists, exclusive beats, and hit tracks. Experience the sound of the future."
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <title>RTB GANG RECORDS | Home</title>
+    <!-- Tailwind CSS v3 + Font Awesome Icons -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
-    />
-    <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-      rel="stylesheet"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
-    />
+    <!-- Custom Styles -->
     <style>
-      :root {
-        --primary: #0a0a0a;
-        --accent: #e63946;
-        --accent-dark: #b91c2c;
-        --secondary: #111111;
-        --text: #ffffff;
-        --text-secondary: #b3b3b3;
-        --card-bg: #1a1a1a;
-        --glass-bg: rgba(0, 0, 0, 0.7);
-        --transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-        --border-radius: 16px;
-        --shadow: 0 25px 40px -15px rgba(230, 57, 70, 0.25);
-        --glow: 0 0 20px rgba(230, 57, 70, 0.5);
-      }
-
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
       body {
-        font-family: "Inter", sans-serif;
-        background-color: var(--primary);
-        color: var(--text);
-        overflow-x: hidden;
-        scroll-behavior: smooth;
+        background-color: #0a0a0a;
+        color: #e5e5e5;
+        font-family: "Inter", system-ui, -apple-system, sans-serif;
+      }
+      .gold-gradient {
+        background: linear-gradient(135deg, #f5af19 0%, #f12711 100%);
+      }
+      .text-gold {
+        color: #f5af19;
+      }
+      .border-gold {
+        border-color: #f5af19;
+      }
+      .hover-glow:hover {
+        box-shadow: 0 0 15px rgba(245, 175, 25, 0.5);
+        transition: all 0.3s ease;
       }
 
-      h1, h2, h3, h4, h5, .logo-font {
-        font-family: "Montserrat", sans-serif;
-        font-weight: 700;
-        letter-spacing: -0.02em;
-      }
-
-      /* Custom scrollbar */
-      ::-webkit-scrollbar {
-        width: 8px;
-      }
-      ::-webkit-scrollbar-track {
-        background: var(--secondary);
-      }
-      ::-webkit-scrollbar-thumb {
-        background: var(--accent);
-        border-radius: 10px;
-      }
-
-      /* Header & Navigation */
-      header {
-        background: rgba(10, 10, 10, 0.95);
-        backdrop-filter: blur(10px);
-        padding: 0.8rem 2rem;
-        border-bottom: 1px solid rgba(230, 57, 70, 0.3);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        transition: var(--transition);
-      }
-
-      .header-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        max-width: 1400px;
-        margin: 0 auto;
-      }
-
-      .logo-small {
-        height: 48px;
-        width: auto;
-        border-radius: 12px;
-        transition: var(--transition);
-      }
-
-      nav {
-        display: flex;
-        gap: 0.2rem;
-      }
-
-      nav a {
-        color: var(--text);
-        text-decoration: none;
-        padding: 0.6rem 1.2rem;
-        font-weight: 500;
-        font-size: 0.95rem;
-        transition: var(--transition);
+      /* ========== CAROUSEL SLIDER STYLES ========== */
+      .carousel-container {
         position: relative;
-        border-radius: 40px;
-      }
-
-      nav a:hover {
-        color: var(--accent);
-        background: rgba(230, 57, 70, 0.1);
-      }
-
-      /* Hamburger Menu */
-      .hamburger {
-        display: none;
-        flex-direction: column;
-        cursor: pointer;
-        padding: 0.5rem;
-        background: transparent;
-        border: 1px solid var(--accent);
-        border-radius: 12px;
-        z-index: 1001;
-      }
-
-      .hamburger div {
-        width: 25px;
-        height: 2px;
-        background-color: var(--text);
-        margin: 4px 0;
-        transition: 0.3s;
-      }
-
-      .hamburger.active div:nth-child(1) {
-        transform: rotate(-45deg) translate(-5px, 5px);
-      }
-      .hamburger.active div:nth-child(2) { opacity: 0; }
-      .hamburger.active div:nth-child(3) {
-        transform: rotate(45deg) translate(-5px, -5px);
-      }
-
-      .mobile-menu {
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 85%;
-        max-width: 380px;
-        height: 100vh;
-        background: var(--secondary);
-        transform: translateX(100%);
-        z-index: 999;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transition: transform 0.4s ease;
-        padding: 2rem;
-        box-shadow: -10px 0 40px rgba(0,0,0,0.8);
-        gap: 1rem;
-      }
-      .mobile-menu.show { transform: translateX(0); }
-      .mobile-menu a {
-        margin: 0.5rem 0;
-        padding: 1rem;
-        color: var(--text);
-        font-size: 1.2rem;
-        text-align: center;
         width: 100%;
-        border-radius: 50px;
-        transition: var(--transition);
+        height: 100vh;
+        overflow: hidden;
       }
-      .mobile-menu a:hover { background: var(--accent); color: white; }
-      .menu-overlay {
-        position: fixed;
+      .carousel-slide {
+        position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0,0,0,0.8);
-        z-index: 998;
         opacity: 0;
-        visibility: hidden;
-        transition: 0.3s;
+        transition: opacity 0.8s ease-in-out;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
       }
-      .menu-overlay.active { opacity: 1; visibility: visible; }
-
-      /* Hero Section - Dynamic Artist Intro */
-      .hero-block {
+      .carousel-slide.active {
+        opacity: 1;
+        z-index: 1;
+      }
+      .carousel-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
         width: 100%;
-        min-height: 100vh;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 0, 0, 0.75) 0%,
+          rgba(0, 0, 0, 0.85) 100%
+        );
+        z-index: 2;
+      }
+      .carousel-content {
+        position: relative;
+        z-index: 3;
+        height: 100%;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
-        background: radial-gradient(circle at 30% 10%, #1a1a2e, #0a0a0a);
-        position: relative;
-        overflow: hidden;
-      }
-      .hero-block::before {
-        content: '';
-        position: absolute;
-        width: 200%;
-        height: 200%;
-        background: repeating-linear-gradient(45deg, rgba(230,57,70,0.02) 0px, rgba(230,57,70,0.02) 2px, transparent 2px, transparent 8px);
-        animation: drift 20s linear infinite;
-      }
-      @keyframes drift {
-        0% { transform: translate(-10%, -10%); }
-        100% { transform: translate(10%, 10%); }
-      }
-      .hero-content {
         text-align: center;
-        z-index: 2;
-        padding: 2rem;
+        padding: 0 1.5rem;
       }
-      .hero-logo {
-        max-width: 55%;
-        filter: drop-shadow(0 10px 30px rgba(0,0,0,0.6));
-        animation: floatGlow 4s ease-in-out infinite;
+      .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(8px);
+        color: #f5af19;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 10;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(245, 175, 25, 0.5);
+        font-size: 1.5rem;
       }
-      @keyframes floatGlow {
-        0% { transform: translateY(0px) scale(1); filter: drop-shadow(0 5px 15px rgba(230,57,70,0.3));}
-        50% { transform: translateY(-15px) scale(1.02); filter: drop-shadow(0 20px 30px rgba(230,57,70,0.5));}
-        100% { transform: translateY(0px) scale(1); filter: drop-shadow(0 5px 15px rgba(230,57,70,0.3));}
+      .carousel-btn:hover {
+        background: #f5af19;
+        color: black;
+        transform: translateY(-50%) scale(1.1);
       }
-      .scroll-indicator {
+      .carousel-btn-prev {
+        left: 20px;
+      }
+      .carousel-btn-next {
+        right: 20px;
+      }
+      .carousel-dots {
         position: absolute;
         bottom: 30px;
         left: 50%;
         transform: translateX(-50%);
-        color: var(--text);
-        font-size: 0.8rem;
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        opacity: 0.8;
-        letter-spacing: 2px;
+        gap: 12px;
+        z-index: 10;
       }
-      .scroll-indicator i {
-        animation: bounce 2s infinite;
-        margin-top: 8px;
-        font-size: 1.2rem;
-        color: var(--accent);
-      }
-      @keyframes bounce {
-        0%,100%{ transform: translateY(0);}
-        50%{ transform: translateY(8px);}
-      }
-
-      /* Carousel Section */
-      .carousel-section {
-        padding: 6rem 0;
-        background: linear-gradient(180deg, var(--secondary) 0%, #0f0f0f 100%);
-      }
-      .section-title {
-        text-align: center;
-        margin-bottom: 3rem;
-        font-size: 2.5rem;
-        position: relative;
-        display: inline-block;
-        width: 100%;
-      }
-      .section-title span {
-        background: linear-gradient(135deg, #fff, var(--accent));
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
-      .section-title:after {
-        content: '';
-        display: block;
-        width: 80px;
-        height: 4px;
-        background: var(--accent);
-        margin: 1rem auto 0;
-        border-radius: 4px;
-      }
-      .swiper {
-        width: 100%;
-        height: 520px;
-        border-radius: 24px;
-      }
-      .swiper-slide {
-        position: relative;
-        border-radius: 24px;
-        overflow: hidden;
-        box-shadow: var(--shadow);
-      }
-      .swiper-slide img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.6s ease;
-      }
-      .swiper-slide:hover img { transform: scale(1.08); }
-      .swiper-caption {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        background: linear-gradient(to top, #000, transparent);
-        padding: 2rem;
-        text-align: center;
-        font-weight: 600;
-        font-size: 1.2rem;
-      }
-      .swiper-button-next, .swiper-button-prev {
-        color: var(--accent);
-        background: rgba(0,0,0,0.5);
-        width: 45px;
-        height: 45px;
+      .carousel-dot {
+        width: 10px;
+        height: 10px;
         border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: all 0.3s ease;
       }
-      .swiper-pagination-bullet-active { background: var(--accent); }
-
-      /* Welcome / Service Block */
-      .welcome-block {
-        display: flex;
-        align-items: center;
-        gap: 5rem;
-        padding: 5rem 2rem;
-        max-width: 1300px;
-        margin: 0 auto;
+      .carousel-dot.active {
+        background: #f5af19;
+        width: 28px;
+        border-radius: 10px;
       }
-      .ceo-image {
-        flex: 1;
-        border-radius: 32px;
-        overflow: hidden;
-        box-shadow: 0 20px 35px -10px rgba(0,0,0,0.5);
-        transition: var(--transition);
-      }
-      .ceo-image img { width: 100%; height: auto; transition: 0.5s; }
-      .ceo-image:hover img { transform: scale(1.02); }
-      .ceo-summary { flex: 1.5; }
-      .ceo-summary h2 {
-        font-size: 2.8rem;
-        margin-bottom: 1.5rem;
-        background: linear-gradient(135deg, #fff, var(--accent));
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-      }
-      .price-tag {
-        background: var(--accent);
-        padding: 0.5rem 1.5rem;
-        border-radius: 40px;
-        display: inline-block;
-        font-weight: 700;
-        margin-top: 0.5rem;
-        box-shadow: var(--glow);
+      @media (max-width: 768px) {
+        .carousel-btn {
+          width: 36px;
+          height: 36px;
+          font-size: 1rem;
+        }
+        .carousel-btn-prev {
+          left: 10px;
+        }
+        .carousel-btn-next {
+          right: 10px;
+        }
+        .carousel-dots {
+          bottom: 20px;
+          gap: 8px;
+        }
       }
 
-      /* Releases Section - Modern Cards */
+      /* ========== RELEASES SECTION STYLES ========== */
       .releases-section {
-        padding: 5rem 2rem;
-        background: var(--secondary);
+        padding: 80px 0;
+        background: #0a0a0a;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
       }
       .section-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 3rem;
         flex-wrap: wrap;
+        margin-bottom: 40px;
+        border-bottom: 2px solid rgba(245, 175, 25, 0.3);
+        padding-bottom: 15px;
       }
       .blink-red {
-        font-size: 2.2rem;
-        background: linear-gradient(90deg, var(--accent), #ff8c8c);
+        font-size: 2rem;
+        font-weight: 800;
+        background: linear-gradient(135deg, #f5af19, #f12711);
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
         animation: pulse 1.5s infinite;
       }
       @keyframes pulse {
-        0% { opacity: 0.7; text-shadow: 0 0 0px rgba(230,57,70,0);}
-        100% { opacity: 1; text-shadow: 0 0 8px rgba(230,57,70,0.5);}
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.7;
+        }
       }
       .view-all {
-        background: rgba(230,57,70,0.2);
-        padding: 0.8rem 1.8rem;
-        border-radius: 40px;
-        color: var(--accent);
+        color: #f5af19;
         text-decoration: none;
         font-weight: 600;
-        transition: var(--transition);
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        gap: 8px;
       }
-      .view-all:hover { background: var(--accent); color: white; transform: translateX(5px);}
+      .view-all:hover {
+        gap: 12px;
+        color: #ffcc66;
+      }
       .release-item {
-        background: var(--card-bg);
-        border-radius: 28px;
-        margin-bottom: 3rem;
-        overflow: hidden;
-        transition: var(--transition);
-        border: 1px solid rgba(230,57,70,0.2);
+        background: linear-gradient(135deg, #111111, #0a0a0a);
+        border-radius: 24px;
+        padding: 30px;
+        margin-bottom: 40px;
+        border: 1px solid rgba(245, 175, 25, 0.2);
+        transition: all 0.3s;
       }
-      .release-item:hover { transform: translateY(-8px); box-shadow: var(--shadow); border-color: var(--accent);}
-      .release-content { padding: 2rem; }
+      .release-item:hover {
+        border-color: rgba(245, 175, 25, 0.5);
+        box-shadow: 0 10px 30px rgba(245, 175, 25, 0.1);
+      }
+      .release-content h3 {
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 12px;
+        color: #fff;
+      }
+      .release-content p {
+        color: #aaa;
+        margin-bottom: 20px;
+        font-size: 1rem;
+      }
       .music-player {
-        border-radius: 20px;
-        overflow: hidden;
-        margin: 1.5rem 0;
+        margin-bottom: 15px;
+      }
+      .music-player iframe {
+        border-radius: 12px;
+        width: 100%;
+        height: 100px;
       }
       .music-links {
         display: flex;
-        gap: 1rem;
         flex-wrap: wrap;
-        margin: 1.5rem 0;
+        gap: 12px;
+        margin-top: 15px;
       }
       .music-links button {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        background: #2c2c2c;
-        border: none;
-        padding: 0.8rem 1.5rem;
-        border-radius: 50px;
-        color: white;
+        padding: 10px 20px;
+        border-radius: 40px;
         font-weight: 600;
         cursor: pointer;
-        transition: 0.2s;
-      }
-      .music-links button i { font-size: 1.2rem; }
-      .music-links .spotify { background: #1DB954; }
-      .music-links .boomplay { background: #F4C542; color: #000; }
-      .music-links .other { background: #4285F4; }
-      .music-links button:hover { transform: scale(0.97); filter: brightness(1.1);}
-      .copied-message {
-        color: #4caf50;
+        transition: all 0.3s;
+        border: none;
+        display: flex;
+        align-items: center;
+        gap: 8px;
         font-size: 0.9rem;
-        margin-top: 0.5rem;
-        opacity: 0;
-        transition: 0.2s;
       }
-      .copied-message.show { opacity: 1; }
+      .music-links .spotify {
+        background: #1db954;
+        color: white;
+      }
+      .music-links .spotify:hover {
+        background: #1ed760;
+        transform: scale(1.02);
+      }
+      .music-links .boomplay {
+        background: #0066cc;
+        color: white;
+      }
+      .music-links .boomplay:hover {
+        background: #0080ff;
+        transform: scale(1.02);
+      }
+      .music-links .other {
+        background: #333;
+        color: #f5af19;
+        border: 1px solid #f5af19;
+      }
+      .music-links .other:hover {
+        background: #f5af19;
+        color: black;
+      }
+      .copied-message {
+        margin-top: 10px;
+        font-size: 0.85rem;
+        color: #1db954;
+        display: none;
+      }
+      .copied-message.show {
+        display: block;
+      }
 
-      /* Video Section - Grid Glam */
+      /* ========== VIDEO SECTION STYLES ========== */
       .video-section {
-        padding: 5rem 2rem;
-        background: #0a0a0a;
+        padding: 80px 0;
+        background: #111111;
+      }
+      .section-title {
+        text-align: center;
+        font-size: 2.2rem;
+        font-weight: 800;
+        margin-bottom: 50px;
+      }
+      .section-title span {
+        background: linear-gradient(135deg, #f5af19, #f12711);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        border-bottom: 3px solid #f5af19;
+        padding-bottom: 10px;
       }
       .video-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin-top: 2rem;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
       }
       .video-item {
-        border-radius: 28px;
+        background: #0a0a0a;
+        border-radius: 16px;
         overflow: hidden;
-        background: var(--card-bg);
-        transition: var(--transition);
+        transition: all 0.3s;
+        border: 1px solid rgba(245, 175, 25, 0.2);
       }
-      .video-item:hover { transform: scale(1.02); box-shadow: var(--shadow);}
+      .video-item:hover {
+        transform: translateY(-8px);
+        border-color: rgba(245, 175, 25, 0.6);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+      }
       .video-container {
         position: relative;
         padding-bottom: 56.25%;
         height: 0;
+        overflow: hidden;
       }
       .video-container iframe {
         position: absolute;
@@ -466,245 +333,427 @@
         left: 0;
         width: 100%;
         height: 100%;
+        border: none;
       }
-      .video-info { padding: 1rem 1.5rem 1.5rem; }
+      .video-info {
+        padding: 15px;
+      }
+      .video-info h3 {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-bottom: 5px;
+      }
+      .video-info p {
+        color: #f5af19;
+        font-size: 0.85rem;
+      }
 
-      /* Footer Modern */
-      footer {
-        background: #050505;
-        padding: 4rem 2rem 2rem;
-        border-top: 1px solid rgba(230,57,70,0.4);
-      }
-      .footer-content {
-        max-width: 1300px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-        gap: 3rem;
-      }
-      .footer-logo {
-        width: 120px;
-        border-radius: 16px;
-        margin-bottom: 1rem;
-      }
-      .social-links {
-        display: flex;
-        gap: 1rem;
-        margin-top: 1.5rem;
-      }
-      .social-links a {
-        background: #222;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: 0.2s;
-        color: white;
-      }
-      .social-links a:hover { background: var(--accent); transform: translateY(-4px);}
-      .footer-links a {
-        display: block;
-        color: var(--text-secondary);
-        text-decoration: none;
-        margin-bottom: 0.8rem;
-        transition: 0.2s;
-      }
-      .footer-links a:hover { color: var(--accent); transform: translateX(5px);}
-      .copyright {
-        text-align: center;
-        margin-top: 3rem;
-        padding-top: 1.5rem;
-        border-top: 1px solid rgba(255,255,255,0.1);
-        color: #777;
-      }
-      .back-to-top {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        width: 50px;
-        height: 50px;
-        background: var(--accent);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        opacity: 0;
-        visibility: hidden;
-        transition: 0.3s;
-        z-index: 99;
-        box-shadow: 0 5px 15px rgba(230,57,70,0.4);
-      }
-      .back-to-top.visible { opacity: 1; visibility: visible; }
-      .back-to-top:hover { transform: translateY(-5px); background: var(--accent-dark);}
-      
-      @media (max-width: 1024px) {
-        .welcome-block { flex-direction: column; text-align: center; gap: 2rem;}
-        .hero-logo { max-width: 75%;}
-      }
-      @media (max-width: 768px) {
-        nav { display: none; }
-        .hamburger { display: flex; }
-        .section-title { font-size: 2rem; }
-        .swiper { height: 380px; }
-        .music-links { justify-content: center; }
-      }
       .fade-in {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: opacity 0.7s ease, transform 0.7s ease;
+        animation: fadeInUp 0.8s ease-out;
       }
-      .fade-in.visible {
-        opacity: 1;
-        transform: translateY(0);
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
-      .container {
-        max-width: 1300px;
-        margin: 0 auto;
-        padding: 0 1.5rem;
+
+      @media (max-width: 768px) {
+        .release-content h3 {
+          font-size: 1.4rem;
+        }
+        .section-title {
+          font-size: 1.8rem;
+        }
+        .blink-red {
+          font-size: 1.5rem;
+        }
+        .music-links button {
+          padding: 8px 16px;
+          font-size: 0.8rem;
+        }
       }
-      .text-accent { color: var(--accent); }
     </style>
   </head>
-  <body>
-    <header>
-      <div class="header-container">
-        <img src="RTBLOGO-_1_.jpg" alt="RTB GANG" class="logo-small" onerror="this.src='https://placehold.co/100x100?text=RTB'">
-        <nav>
-          <a href="index.html">Home</a><a href="release.html">Releases</a><a href="artist.html">Artists</a>
-          <a href="about.html">About</a><a href="contact.html">Contact</a><a href="beats.html">Beats</a><a href="songs.html">Songs</a>
-        </nav>
-        <div class="hamburger" onclick="toggleMenu()"><div></div><div></div><div></div></div>
+  <body class="bg-black text-gray-200">
+    <!-- ========== NAVIGATION ========== -->
+    <nav
+      class="bg-black/90 backdrop-blur-md border-b border-gray-800 sticky top-0 z-50"
+    >
+      <div
+        class="container mx-auto px-6 py-4 flex justify-between items-center flex-wrap"
+      >
+        <a href="index.html" class="text-3xl font-bold tracking-tighter"
+          ><span class="text-gold">RTB GANG</span> RECORDS</a
+        >
+        <div class="hidden md:flex space-x-8 font-medium">
+          <a href="index.html" class="hover:text-gold transition">Home</a>
+          <a href="artist.html" class="hover:text-gold transition">Artist</a>
+          <a href="music.html" class="hover:text-gold transition">Music</a>
+          <a href="about.html" class="hover:text-gold transition">About</a>
+          <a href="contact.html" class="hover:text-gold transition">Contact</a>
+        </div>
+        <button id="menu-btn" class="md:hidden text-2xl focus:outline-none">
+          <i class="fas fa-bars"></i>
+        </button>
       </div>
-    </header>
-    <div class="menu-overlay" id="menu-overlay" onclick="toggleMenu()"></div>
-    <nav class="mobile-menu" id="mobile-navbar">
-      <a href="index.html">Home</a><a href="release.html">Releases</a><a href="artist.html">Artists</a>
-      <a href="about.html">About</a><a href="contact.html">Contact</a><a href="beats.html">Beats</a><a href="songs.html">Songs</a>
+      <div
+        id="mobile-menu"
+        class="md:hidden hidden bg-black border-t border-gray-800 px-6 py-4 flex flex-col space-y-3"
+      >
+        <a href="index.html" class="hover:text-gold py-2">Home</a>
+        <a href="artist.html" class="hover:text-gold py-2">Artist</a>
+        <a href="music.html" class="hover:text-gold py-2">Music</a>
+        <a href="about.html" class="hover:text-gold py-2">About</a>
+        <a href="contact.html" class="hover:text-gold py-2">Contact</a>
+      </div>
     </nav>
 
-    <main>
-      <section class="hero-block">
-        <div class="hero-content">
-          <img src="rtb-logo.jpg" alt="RTB GANG RECORDS" class="hero-logo" onerror="this.src='https://placehold.co/400x200?text=RTB+GANG'">
-          <h1 style="margin-top: 1.5rem; font-size: 1.8rem; letter-spacing: 2px;">THE SOUND OF THE STREETS</h1>
+    <!-- ========== HERO SECTION WITH AUTO CAROUSEL ========== -->
+    <section class="relative h-screen overflow-hidden">
+      <div class="carousel-container">
+        <!-- 5 Slides -->
+        <div
+          class="carousel-slide active"
+          style="
+            background-image: url('https://images.pexels.com/photos/167092/pexels-photo-167092.jpeg?auto=compress&cs=tinysrgb&w=1600');
+          "
+        ></div>
+        <div
+          class="carousel-slide"
+          style="
+            background-image: url('https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=1600');
+          "
+        ></div>
+        <div
+          class="carousel-slide"
+          style="
+            background-image: url('https://images.pexels.com/photos/2109227/pexels-photo-2109227.jpeg?auto=compress&cs=tinysrgb&w=1600');
+          "
+        ></div>
+        <div
+          class="carousel-slide"
+          style="
+            background-image: url('https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg?auto=compress&cs=tinysrgb&w=1600');
+          "
+        ></div>
+        <div
+          class="carousel-slide"
+          style="
+            background-image: url('https://images.pexels.com/photos/1387229/pexels-photo-1387229.jpeg?auto=compress&cs=tinysrgb&w=1600');
+          "
+        ></div>
+
+        <div class="carousel-overlay"></div>
+
+        <div class="carousel-content">
+          <h1 class="text-5xl md:text-7xl font-black uppercase tracking-wider">
+            RTB GANG <span class="text-gold">RECORDS</span>
+          </h1>
+          <p class="text-xl md:text-2xl mt-4 max-w-2xl mx-auto">
+            The Sound of the Streets. The Voice of the Real.
+          </p>
         </div>
-        <div class="scroll-indicator">EXPLORE <i class="fas fa-chevron-down"></i></div>
-      </section>
 
-      <section class="carousel-section fade-in">
-        <div class="container">
-          <h2 class="section-title"><span>FEATURED</span> ARTISTS</h2>
-          <div class="swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide"><img src="TheTerio.jpg" alt="The Terio"><div class="swiper-caption">🔥 THE TERIO - NEW BANGER INCOMING</div></div>
-              <div class="swiper-slide"><img src="CNO.jpg" alt="CNO"><div class="swiper-caption">🎥 CNO - VISUAL STORYTELLER</div></div>
-              <div class="swiper-slide"><img src="sharkman.jpg" alt="Sharkman"><div class="swiper-caption">🦈 SHARKMAN - NEXT HITMAKER</div></div>
-            </div>
-            <div class="swiper-button-next"></div><div class="swiper-button-prev"></div><div class="swiper-pagination"></div>
-          </div>
+        <div class="carousel-btn carousel-btn-prev" id="prevBtn">
+          <i class="fas fa-chevron-left"></i>
         </div>
-      </section>
-
-      <section class="welcome-block fade-in">
-        <div class="ceo-image"><img src="ceo-welcome1.jpg" alt="CEO Welcome" onerror="this.src='https://placehold.co/600x400?text=Studio+Preview'"></div>
-        <div class="ceo-summary">
-          <h2>PREMIUM <span class="text-accent">STUDIO</span> EXPERIENCE</h2>
-          <p>RTB GANG RECORDS delivers top-tier recording, mixing, and mastering with industry veterans. From beat production to final vocals, we shape hits.</p>
-          <p>🎤 Recording Session Start from <span class="price-tag">Tshs 80,000/=</span></p>
-          <p style="margin-top: 1rem;"><i class="fas fa-headphones"></i> Book your session and unleash your potential.</p>
+        <div class="carousel-btn carousel-btn-next" id="nextBtn">
+          <i class="fas fa-chevron-right"></i>
         </div>
-      </section>
-
-      <section class="releases-section fade-in">
-        <div class="container">
-          <div class="section-header"><h2 class="blink-red">🔥 OUT NOW! 🔥</h2><a href="release.html" class="view-all">All Releases <i class="fas fa-arrow-right"></i></a></div>
-          
-          <div class="release-item">
-            <div class="release-content">
-              <h3>Finessenesseh ft Beybah - Ray (Audio)</h3>
-              <p>Viral sensation blending Afrobeat and rap. Stream the anthem that's taking over charts!</p>
-              <div class="music-player"><iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1lGU9GpmW28OAL2hsfi7xd?utm_source=generator" width="100%" height="100" frameborder="0" allowfullscreen=""></iframe></div>
-              <div class="music-player"><iframe src="https://www.boomplay.com/embed/182691905/MUSIC?colType=2&colID=98433277" width="100%" height="100" frameborder="0"></iframe></div>
-              <div class="music-links">
-                <button class="spotify" onclick="copyLink('https://open.spotify.com/track/1lGU9GpmW28OAL2hsfi7xd?si=aa2cedb8549d4a46', this)"><i class="fab fa-spotify"></i> Spotify Link</button>
-                <button class="boomplay" onclick="copyLink('https://www.boomplay.com/songs/182691905?srModel=COPYLINK&srList=WEB', this)"><i class="fas fa-music"></i> Boomplay Link</button>
-                <button class="other" onclick="copyLink('https://push.fm/fl/6767k5TH', this)"><i class="fas fa-link"></i> Other Platforms</button>
-              </div>
-              <div class="copied-message" id="msg1">✓ Copied to clipboard!</div>
-            </div>
-          </div>
-
-          <div class="release-item">
-            <div class="release-content">
-              <h3>Samade - Alien (Audio)</h3>
-              <p>Intergalactic vibes and hypnotic flow – Samade delivers a masterpiece. Get hooked now!</p>
-              <div class="music-player"><iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/1j4ygrJsDSGDNNBfMVM42t?utm_source=generator" width="100%" height="100" frameborder="0"></iframe></div>
-              <div class="music-player"><iframe src="https://www.boomplay.com/embed/181955191/MUSIC?colType=2&colID=98075154" width="100%" height="100" frameborder="0"></iframe></div>
-              <div class="music-links">
-                <button class="spotify" onclick="copyLink('https://open.spotify.com/track/1j4ygrJsDSGDNNBfMVM42t?si=NElqaa-TQkaI_Eixdmodkg', this)"><i class="fab fa-spotify"></i> Spotify Link</button>
-                <button class="boomplay" onclick="copyLink('https://www.boomplay.com/artists/98075154', this)"><i class="fas fa-music"></i> Boomplay Link</button>
-                <button class="other" onclick="copyLink('https://push.fm/fl/MGBRLtDI', this)"><i class="fas fa-link"></i> Other Platforms</button>
-              </div>
-              <div class="copied-message" id="msg2">✓ Copied to clipboard!</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="video-section fade-in">
-        <div class="container">
-          <h2 class="section-title"><span>🔥 HOT HITS 🔥</span> MUSIC VIDEOS</h2>
-          <div class="video-grid">
-            <div class="video-item"><div class="video-container"><iframe src="https://www.youtube.com/embed/rrnCtXNJf0g?si=9Hmu-FYJi9oKnP3S" title="YT" allowfullscreen></iframe></div><div class="video-info"><h3>Streets Anthem</h3><p>RTB GANG · Visual</p></div></div>
-            <div class="video-item"><div class="video-container"><iframe src="https://www.youtube.com/embed/-1SswBDA9kY?si=RMjUGeKaPHHumxI8" allowfullscreen></iframe></div><div class="video-info"><h3>Midnight Drift</h3><p>Official Music Video</p></div></div>
-            <div class="video-item"><div class="video-container"><iframe src="https://www.youtube.com/embed/_SW1j6ZAP_g" allowfullscreen></iframe></div><div class="video-info"><h3>Rising Star</h3><p>Visualizer</p></div></div>
-            <div class="video-item"><div class="video-container"><iframe src="https://www.youtube.com/embed/Sfx5hkKG8pw" allowfullscreen></iframe></div><div class="video-info"><h3>Block Party</h3><p>Live Session</p></div></div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      <div class="footer-content">
-        <div><img src="RTBLOGO-_1_.jpg" alt="RTB" class="footer-logo" onerror="this.src='https://placehold.co/150x150?text=RTB'"><p>Redefining Tanzanian hip-hop and afrobeat culture.</p><div class="social-links"><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-youtube"></i></a><a href="#"><i class="fab fa-spotify"></i></a></div></div>
-        <div><h3>Quick Links</h3><div class="footer-links"><a href="index.html">Home</a><a href="release.html">Releases</a><a href="artist.html">Artists</a><a href="about.html">About</a><a href="beats.html">Beats for Sale</a></div></div>
-        <div><h3>Connect</h3><div class="footer-links"><a href="tel:+255655599681"><i class="fas fa-phone-alt"></i> +255 655 599 681</a><a href="tel:+255687691144"><i class="fas fa-phone-alt"></i> +255 687 691 144</a><a href="mailto:khaliiwiz67@gmail.com"><i class="fas fa-envelope"></i> khaliiwiz67@gmail.com</a><a><i class="fas fa-map-marker-alt"></i> Dar es Salaam, TZ</a></div></div>
+        <div class="carousel-dots" id="carouselDots"></div>
       </div>
-      <div class="copyright"><p>© 2025 RTB GANG RECORDS — All rights reserved. Built for the culture.</p></div>
+    </section>
+
+    <!-- ========== LATEST TRACKS SECTION (LIKE REFERENCE) ========== -->
+    <section class="releases-section fade-in">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="blink-red">🔥 OUT NOW! 🔥</h2>
+          <a href="release.html" class="view-all"
+            >All Releases <i class="fas fa-arrow-right"></i
+          ></a>
+        </div>
+
+        <div class="release-item">
+          <div class="release-content">
+            <h3>Finessenesseh ft Beybah - Ray (Audio)</h3>
+            <p>
+              Viral sensation blending Afrobeat and rap. Stream the anthem
+              that's taking over charts!
+            </p>
+            <div class="music-player">
+              <iframe
+                style="border-radius: 12px"
+                src="https://open.spotify.com/embed/track/1lGU9GpmW28OAL2hsfi7xd?utm_source=generator"
+                width="100%"
+                height="100"
+                frameborder="0"
+                allowfullscreen=""
+              ></iframe>
+            </div>
+            <div class="music-player">
+              <iframe
+                src="https://www.boomplay.com/embed/182691905/MUSIC?colType=2&colID=98433277"
+                width="100%"
+                height="100"
+                frameborder="0"
+              ></iframe>
+            </div>
+            <div class="music-links">
+              <button
+                class="spotify"
+                onclick="copyLink('https://open.spotify.com/track/1lGU9GpmW28OAL2hsfi7xd?si=aa2cedb8549d4a46', this)"
+              >
+                <i class="fab fa-spotify"></i> Spotify Link
+              </button>
+              <button
+                class="boomplay"
+                onclick="copyLink('https://www.boomplay.com/songs/182691905?srModel=COPYLINK&srList=WEB', this)"
+              >
+                <i class="fas fa-music"></i> Boomplay Link
+              </button>
+              <button
+                class="other"
+                onclick="copyLink('https://push.fm/fl/6767k5TH', this)"
+              >
+                <i class="fas fa-link"></i> Other Platforms
+              </button>
+            </div>
+            <div class="copied-message" id="msg1">✓ Copied to clipboard!</div>
+          </div>
+        </div>
+
+        <div class="release-item">
+          <div class="release-content">
+            <h3>Samade - Alien (Audio)</h3>
+            <p>
+              Intergalactic vibes and hypnotic flow – Samade delivers a
+              masterpiece. Get hooked now!
+            </p>
+            <div class="music-player">
+              <iframe
+                style="border-radius: 12px"
+                src="https://open.spotify.com/embed/track/1j4ygrJsDSGDNNBfMVM42t?utm_source=generator"
+                width="100%"
+                height="100"
+                frameborder="0"
+              ></iframe>
+            </div>
+            <div class="music-player">
+              <iframe
+                src="https://www.boomplay.com/embed/181955191/MUSIC?colType=2&colID=98075154"
+                width="100%"
+                height="100"
+                frameborder="0"
+              ></iframe>
+            </div>
+            <div class="music-links">
+              <button
+                class="spotify"
+                onclick="copyLink('https://open.spotify.com/track/1j4ygrJsDSGDNNBfMVM42t?si=NElqaa-TQkaI_Eixdmodkg', this)"
+              >
+                <i class="fab fa-spotify"></i> Spotify Link
+              </button>
+              <button
+                class="boomplay"
+                onclick="copyLink('https://www.boomplay.com/artists/98075154', this)"
+              >
+                <i class="fas fa-music"></i> Boomplay Link
+              </button>
+              <button
+                class="other"
+                onclick="copyLink('https://push.fm/fl/MGBRLtDI', this)"
+              >
+                <i class="fas fa-link"></i> Other Platforms
+              </button>
+            </div>
+            <div class="copied-message" id="msg2">✓ Copied to clipboard!</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== MUSIC VIDEOS SECTION (9 VIDEOS) ========== -->
+    <section class="video-section fade-in">
+      <div class="container">
+        <h2 class="section-title"><span>🔥 HOT HITS 🔥</span> MUSIC VIDEOS</h2>
+        <div class="video-grid">
+          <div class="video-item">
+            <div class="video-container">
+              <iframe
+                src="https://www.youtube.com/embed/rrnCtXNJf0g?si=9Hmu-FYJi9oKnP3S"
+                title="YT"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="video-info">
+              <h3>Streets Anthem</h3>
+              <p>RTB GANG · Visual</p>
+            </div>
+          </div>
+          <div class="video-item">
+            <div class="video-container">
+              <iframe
+                src="https://www.youtube.com/embed/-1SswBDA9kY?si=RMjUGeKaPHHumxI8"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="video-info">
+              <h3>Midnight Drift</h3>
+              <p>Official Music Video</p>
+            </div>
+          </div>
+          <div class="video-item">
+            <div class="video-container">
+              <iframe
+                src="https://www.youtube.com/embed/_SW1j6ZAP_g"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="video-info">
+              <h3>Rising Star</h3>
+              <p>Visualizer</p>
+            </div>
+          </div>
+          <div class="video-item">
+            <div class="video-container">
+              <iframe
+                src="https://www.youtube.com/embed/Sfx5hkKG8pw"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="video-info">
+              <h3>Block Party</h3>
+              <p>Live Session</p>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="bg-black border-t border-gray-800 py-12">
+      <div class="container mx-auto px-6 text-center">
+        <div class="text-2xl font-bold mb-4">
+          <span class="text-gold">RTB GANG</span> RECORDS
+        </div>
+        <div class="flex justify-center space-x-6 mb-6">
+          <a href="#" class="text-gray-400 hover:text-gold text-xl"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="#" class="text-gray-400 hover:text-gold text-xl"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a href="#" class="text-gray-400 hover:text-gold text-xl"
+            ><i class="fab fa-youtube"></i
+          ></a>
+          <a href="#" class="text-gray-400 hover:text-gold text-xl"
+            ><i class="fab fa-spotify"></i
+          ></a>
+        </div>
+        <p class="text-gray-500 text-sm">
+          © 2025 RTB GANG RECORDS. All rights reserved. Real music, real
+          stories.
+        </p>
+      </div>
     </footer>
-    <div class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></div>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script>
-      function toggleMenu() {
-        const mobileNav = document.getElementById("mobile-navbar");
-        const hamburger = document.querySelector(".hamburger");
-        const overlay = document.getElementById("menu-overlay");
-        mobileNav.classList.toggle("show");
-        hamburger.classList.toggle("active");
-        overlay.classList.toggle("active");
-        document.body.style.overflow = mobileNav.classList.contains("show") ? "hidden" : "";
-      }
-      const swiper = new Swiper(".swiper", { loop: true, autoplay: { delay: 4500, disableOnInteraction: false }, pagination: { el: ".swiper-pagination", clickable: true }, navigation: { nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" }, effect: "slide" });
-      
-      function copyLink(url, btn) {
-        navigator.clipboard.writeText(url).then(() => {
-          let parentDiv = btn.closest('.release-content');
-          let msgDiv = parentDiv.querySelector('.copied-message');
-          if(msgDiv) { msgDiv.classList.add('show'); setTimeout(() => msgDiv.classList.remove('show'), 2000); }
-        }).catch(err => console.warn(err));
+      // Mobile menu toggle
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      if (menuBtn) {
+        menuBtn.addEventListener("click", () => {
+          mobileMenu.classList.toggle("hidden");
+        });
       }
 
-      const backBtn = document.getElementById("backToTop");
-      window.addEventListener("scroll", () => { backBtn.classList.toggle("visible", window.pageYOffset > 300); });
-      backBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+      // ========== AUTO CAROUSEL SLIDER ==========
+      const slides = document.querySelectorAll(".carousel-slide");
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      const dotsContainer = document.getElementById("carouselDots");
 
-      const faders = document.querySelectorAll(".fade-in");
-      const obs = new IntersectionObserver((entries) => { entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add("visible"); obs.unobserve(e.target); } }); }, { threshold: 0.1 });
-      faders.forEach(el => obs.observe(el));
+      let currentSlide = 0;
+      const totalSlides = slides.length;
+      let autoSlideInterval;
+
+      function createDots() {
+        dotsContainer.innerHTML = "";
+        for (let i = 0; i < totalSlides; i++) {
+          const dot = document.createElement("div");
+          dot.classList.add("carousel-dot");
+          if (i === currentSlide) dot.classList.add("active");
+          dot.addEventListener("click", () => goToSlide(i));
+          dotsContainer.appendChild(dot);
+        }
+      }
+
+      function goToSlide(index) {
+        slides[currentSlide].classList.remove("active");
+        currentSlide = (index + totalSlides) % totalSlides;
+        slides[currentSlide].classList.add("active");
+        updateDots();
+        resetAutoSlide();
+      }
+
+      function updateDots() {
+        const dots = document.querySelectorAll(".carousel-dot");
+        dots.forEach((dot, idx) => {
+          if (idx === currentSlide) dot.classList.add("active");
+          else dot.classList.remove("active");
+        });
+      }
+
+      function nextSlide() {
+        goToSlide(currentSlide + 1);
+      }
+      function prevSlide() {
+        goToSlide(currentSlide - 1);
+      }
+
+      function startAutoSlide() {
+        autoSlideInterval = setInterval(nextSlide, 5000);
+      }
+      function resetAutoSlide() {
+        clearInterval(autoSlideInterval);
+        startAutoSlide();
+      }
+
+      prevBtn.addEventListener("click", prevSlide);
+      nextBtn.addEventListener("click", nextSlide);
+
+      const carouselContainer = document.querySelector(".carousel-container");
+      carouselContainer.addEventListener("mouseenter", () =>
+        clearInterval(autoSlideInterval)
+      );
+      carouselContainer.addEventListener("mouseleave", () => startAutoSlide());
+
+      createDots();
+      startAutoSlide();
+
+      // ========== COPY LINK FUNCTION ==========
+      window.copyLink = function (link, button) {
+        navigator.clipboard
+          .writeText(link)
+          .then(() => {
+            const releaseItem = button.closest(".release-item");
+            const msgDiv = releaseItem.querySelector(".copied-message");
+            if (msgDiv) {
+              msgDiv.classList.add("show");
+              setTimeout(() => msgDiv.classList.remove("show"), 2000);
+            }
+          })
+          .catch((err) => {
+            console.error("Copy failed:", err);
+          });
+      };
     </script>
   </body>
 </html>
