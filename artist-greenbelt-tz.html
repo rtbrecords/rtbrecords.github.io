@@ -1,776 +1,697 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Greenbelt TZ - RTB RECORDS</title>
+    <title>RTB GANG — Celebrating</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
     <style>
-      body {
-        font-family: Arial, sans-serif;
+      * {
         margin: 0;
         padding: 0;
-        background-color: #ffffff;
-        color: #000;
-        overflow-x: hidden;
-        display: flex;
-        flex-direction: column;
+        box-sizing: border-box;
+      }
+
+      body {
         min-height: 100vh;
-      }
-
-      header {
-        background-color: #000;
-        padding: 10px;
-        border-bottom: 3px solid #ff0000;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      nav {
-        display: flex;
-        justify-content: flex-end;
-        background-color: #000;
-        padding: 5px 10px;
-        border: 1px solid #ff0000;
-        transition: transform 0.3s ease;
-        position: absolute;
-        top: 10px;
-        right: 10px;
-      }
-
-      nav a {
-        color: white;
-        text-decoration: none;
-        padding: 5px 10px;
-        font-weight: bold;
-        transition: background-color 0.3s;
-      }
-
-      nav a:hover {
-        background-color: #ff0000;
+        background: #06050d;
         color: #fff;
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        overflow-x: hidden;
       }
 
-      /* Hamburger Menu Styling */
-      .hamburger {
-        display: none;
-        flex-direction: column;
-        cursor: pointer;
-        padding: 5px;
-        background-color: #000;
-        border: 2px solid #ff0000;
+      /* ── Animations ── */
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-12px);
+        }
+      }
+      @keyframes pulseRing {
+        0% {
+          transform: scale(0.92);
+          opacity: 0.6;
+        }
+        50% {
+          transform: scale(1.08);
+          opacity: 0.15;
+        }
+        100% {
+          transform: scale(0.92);
+          opacity: 0.6;
+        }
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(28px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes spinSlow {
+        from {
+          transform: translate(-50%, -50%) rotate(0deg);
+        }
+        to {
+          transform: translate(-50%, -50%) rotate(360deg);
+        }
+      }
+      @keyframes shimmer {
+        0% {
+          background-position: -200% center;
+        }
+        100% {
+          background-position: 200% center;
+        }
+      }
+      @keyframes breathe {
+        0%,
+        100% {
+          opacity: 0.08;
+        }
+        50% {
+          opacity: 0.18;
+        }
       }
 
-      .hamburger div {
-        width: 25px;
-        height: 3px;
-        background-color: #fff;
-        margin: 4px 0;
-        transition: 0.3s;
+      /* ── Hero ── */
+      .hero {
+        position: relative;
+        padding: 52px 24px 32px;
+        text-align: center;
+      }
+      .hero__glow {
+        position: absolute;
+        top: -140px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 650px;
+        height: 650px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(220, 38, 38, 0.12) 0%,
+          rgba(220, 160, 38, 0.06) 40%,
+          transparent 70%
+        );
+        animation: pulseRing 7s ease-in-out infinite;
+        pointer-events: none;
+      }
+      .hero__glow--right {
+        top: 20px;
+        left: auto;
+        right: -100px;
+        width: 260px;
+        height: 260px;
+        background: radial-gradient(
+          circle,
+          rgba(255, 180, 0, 0.07) 0%,
+          transparent 70%
+        );
+        animation: breathe 5s ease-in-out infinite;
       }
 
-      .hamburger.active div:nth-child(1) {
-        transform: rotate(-45deg) translate(-5px, 6px);
+      /* Logo / Avatar */
+      .avatar {
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        margin: 0 auto 22px;
+        background: linear-gradient(
+          135deg,
+          #dc2626 0%,
+          #f59e0b 50%,
+          #ef4444 100%
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        font-weight: 900;
+        color: #fff;
+        letter-spacing: 1.5px;
+        box-shadow: 0 8px 48px rgba(220, 38, 38, 0.3),
+          0 0 0 3px rgba(255, 255, 255, 0.05);
+        animation: float 5s ease-in-out infinite;
+        position: relative;
+        text-transform: uppercase;
+      }
+      .avatar::after {
+        content: "";
+        position: absolute;
+        inset: -6px;
+        border-radius: 50%;
+        border: 1.5px solid rgba(220, 38, 38, 0.15);
+        animation: pulseRing 4s ease-in-out infinite;
       }
 
-      .hamburger.active div:nth-child(2) {
-        opacity: 0;
+      .artist-name {
+        font-size: 34px;
+        font-weight: 900;
+        letter-spacing: -1px;
+        background: linear-gradient(135deg, #fff 30%, #f59e0b 70%, #ef4444);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .artist-tagline {
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.25);
+        margin-top: 8px;
+        font-weight: 600;
+        letter-spacing: 4px;
+        text-transform: uppercase;
       }
 
-      .hamburger.active div:nth-child(3) {
-        transform: rotate(45deg) translate(-5px, -6px);
+      /* ── Release Section ── */
+      .release {
+        max-width: 460px;
+        margin: 0 auto;
+        padding: 0 20px 64px;
+        animation: fadeUp 0.9s ease 0.1s both;
       }
 
-      /* Mobile nav menu */
-      nav.mobile-menu {
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: #000;
-        transform: translateX(100%);
-        z-index: 999;
+      .badge-wrap {
+        text-align: center;
+        margin-bottom: 28px;
+      }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 10px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 2.5px;
+        color: #f59e0b;
+        background: rgba(245, 158, 11, 0.07);
+        padding: 7px 18px;
+        border-radius: 20px;
+        border: 1px solid rgba(245, 158, 11, 0.12);
+      }
+      .badge .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #f59e0b;
+        animation: breathe 1.5s ease-in-out infinite;
+      }
+
+      /* ── Cover Art ── */
+      .cover {
+        width: 100%;
+        aspect-ratio: 1;
+        max-width: 360px;
+        margin: 0 auto 32px;
+        border-radius: 24px;
+        background: linear-gradient(
+          145deg,
+          #1a0a0a 0%,
+          #2d1010 25%,
+          #1a1505 55%,
+          #0d0a18 100%
+        );
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        transition: transform 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 28px 70px rgba(0, 0, 0, 0.6),
+          0 0 0 1px rgba(255, 255, 255, 0.04);
       }
-
-      nav.mobile-menu.show {
-        transform: translateX(0);
+      .cover__ring {
+        position: absolute;
+        border-radius: 50%;
+        border: 1px solid rgba(220, 38, 38, 0.1);
       }
-
-      nav.mobile-menu a {
-        margin: 10px;
-        padding: 15px 20px;
-        color: #fff;
-        font-size: 1.5em;
-        text-align: center;
+      .cover__ring--1 {
+        top: 12%;
+        left: 8%;
+        width: 140px;
+        height: 140px;
+        animation: pulseRing 5s ease-in-out infinite;
       }
-
-      .artist-page {
-        flex-grow: 1;
-        padding: 40px;
-        text-align: center;
-        background: linear-gradient(135deg, #1e1e1e, #ff0000);
-        border-radius: 10px;
-        margin: 40px 10%;
-        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+      .cover__ring--2 {
+        bottom: 15%;
+        right: 5%;
+        width: 100px;
+        height: 100px;
+        border-color: rgba(245, 158, 11, 0.1);
+        animation: pulseRing 6s ease-in-out infinite 1s;
       }
-
-      .artist-page h1 {
-        font-size: 2.5rem;
-        color: #fff;
-        text-transform: uppercase;
-        margin-bottom: 20px;
-      }
-
-      .artist-page img {
-        width: 400px;
-        height: 400px;
-        object-fit: cover;
-        border-radius: 0%;
-        margin-bottom: 30px;
-        border: 1px solid #fff;
-        transition: transform 0.3s ease-in-out;
-      }
-
-      .artist-page img:hover {
-        transform: scale(1.05);
-      }
-
-      .songs-section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-        margin-top: 40px;
-      }
-
-      .song {
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid #fff;
-        border-radius: 15px;
-        padding: 25px;
-        width: 100%;
-        max-width: 800px;
-        box-shadow: 0 4px 15px rgba(255, 0, 0, 0.2);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-
-      .song:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 20px rgba(255, 0, 0, 0.3);
-      }
-
-      .song h2 {
-        color: #fff;
-        font-size: 1.8rem;
-        margin-bottom: 15px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
-
-      .song img {
+      .cover__ring--3 {
+        top: 50%;
+        left: 50%;
         width: 200px;
         height: 200px;
-        object-fit: cover;
-        border-radius: 0%;
-        margin-bottom: 20px;
-        transition: transform 0.3s ease-in-out;
+        border-color: rgba(255, 255, 255, 0.03);
+        animation: spinSlow 40s linear infinite;
       }
 
-      .song img:hover {
-        transform: scale(1.05);
+      .cover__text-bg {
+        font-size: 72px;
+        font-weight: 900;
+        color: rgba(255, 255, 255, 0.03);
+        letter-spacing: -4px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        white-space: nowrap;
       }
 
-      .music-links {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        margin-top: 15px;
-        flex-wrap: wrap;
-      }
-
-      .music-links button {
-        background-color: #000;
-        color: #fff;
-        border: 2px solid #ff0000;
-        padding: 12px 20px;
-        font-size: 0.9rem;
-        font-weight: bold;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .music-links button:hover {
-        background-color: #ff0000;
-        color: #fff;
-        transform: translateY(-3px);
-      }
-
-      footer {
-        background-color: #000;
-        color: #fff;
-        text-align: center;
-        padding: 20px;
-        margin-top: 40px;
-        border-top: 3px solid #ff0000;
-        flex-shrink: 0;
-      }
-
-      footer p {
-        font-size: 1rem;
-      }
-
-      /* Modal styles */
-      .modal {
-        display: none;
-        position: fixed;
-        z-index: 1001;
-        left: 0;
-        top: 0;
+      /* ── Cover Image ── */
+      .cover__image {
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.8);
-        align-items: center;
-        justify-content: center;
+        object-fit: cover;
+        position: relative;
+        z-index: 2;
+        border-radius: 24px;
       }
 
-      .modal-content {
-        background-color: #1e1e1e;
-        margin: auto;
-        padding: 20px;
-        border: 2px solid #ff0000;
-        border-radius: 10px;
-        width: 80%;
-        max-width: 600px;
-        max-height: 80vh;
-        overflow-y: auto;
+      .cover__title {
+        font-size: 26px;
+        font-weight: 900;
+        letter-spacing: 6px;
+        text-transform: uppercase;
+        margin-top: 14px;
+        position: relative;
+        z-index: 2;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.7),
+          rgba(245, 158, 11, 0.6)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .cover__artist {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.2);
+        margin-top: 8px;
+        position: relative;
+        z-index: 2;
+      }
+
+      /* Song info */
+      .song-info {
         text-align: center;
+        margin-bottom: 36px;
+      }
+      .song-title {
+        font-size: 26px;
+        font-weight: 900;
+        letter-spacing: -0.5px;
+      }
+      .song-meta {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 8px;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.28);
+        font-weight: 500;
+      }
+      .song-meta .dot {
+        opacity: 0.3;
+      }
+      .song-desc {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.22);
+        margin: 16px auto 0;
+        max-width: 380px;
+        line-height: 1.75;
       }
 
-      .close {
-        color: #fff;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
+      /* ── Stream Buttons ── */
+      .stream-label {
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2.5px;
+        color: rgba(255, 255, 255, 0.16);
+        margin: 0 0 10px 6px;
+      }
+      .stream-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .stream-btn {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 16px 22px;
+        border-radius: 16px;
+        border: 1.5px solid rgba(255, 255, 255, 0.06);
+        background: rgba(255, 255, 255, 0.025);
+        color: rgba(255, 255, 255, 0.65);
+        font-size: 16px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         cursor: pointer;
       }
-
-      .close:hover {
-        color: #ff0000;
+      .stream-btn:hover {
+        transform: translateY(-3px) scale(1.015);
+      }
+      .stream-btn:active {
+        transform: scale(0.97);
+      }
+      .stream-btn .icon {
+        display: flex;
+        align-items: center;
+        flex-shrink: 0;
+        width: 28px;
+        height: 28px;
+        justify-content: center;
+      }
+      .stream-btn .label {
+        flex: 1;
+      }
+      .stream-btn .cta {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.2px;
+        opacity: 0.25;
+        transition: all 0.3s ease;
       }
 
-      .embed-container {
-        margin-top: 20px;
-        width: 100%;
+      /* Platform colors */
+      .stream-btn[data-p="spotify"]:hover {
+        border-color: #1db954;
+        background: rgba(29, 185, 84, 0.08);
+        color: #1db954;
+        box-shadow: 0 10px 36px rgba(29, 185, 84, 0.12);
+      }
+      .stream-btn[data-p="spotify"]:hover .cta {
+        opacity: 1;
+        color: #1db954;
       }
 
-      .embed-container iframe {
+      .stream-btn[data-p="boomplay"]:hover {
+        border-color: #ff6b1c;
+        background: rgba(255, 107, 28, 0.08);
+        color: #ff6b1c;
+        box-shadow: 0 10px 36px rgba(255, 107, 28, 0.12);
+      }
+      .stream-btn[data-p="boomplay"]:hover .cta {
+        opacity: 1;
+        color: #ff6b1c;
+      }
+
+      .stream-btn[data-p="audiomack"]:hover {
+        border-color: #ffa200;
+        background: rgba(255, 162, 0, 0.08);
+        color: #ffa200;
+        box-shadow: 0 10px 36px rgba(255, 162, 0, 0.12);
+      }
+      .stream-btn[data-p="audiomack"]:hover .cta {
+        opacity: 1;
+        color: #ffa200;
+      }
+
+      .stream-btn[data-p="youtube"]:hover {
+        border-color: #ff0033;
+        background: rgba(255, 0, 51, 0.08);
+        color: #ff0033;
+        box-shadow: 0 10px 36px rgba(255, 0, 51, 0.12);
+      }
+      .stream-btn[data-p="youtube"]:hover .cta {
+        opacity: 1;
+        color: #ff0033;
+      }
+
+      /* ── RTB branding bar ── */
+      .branding {
+        text-align: center;
+        margin-top: 52px;
+        padding-top: 22px;
+        border-top: 1px solid rgba(255, 255, 255, 0.04);
+      }
+      .branding__logo {
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        background: linear-gradient(90deg, #dc2626, #f59e0b);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .branding__sub {
+        font-size: 10px;
+        color: rgba(255, 255, 255, 0.1);
+        margin-top: 6px;
+        letter-spacing: 0.5px;
+      }
+      .branding__link {
+        display: inline-block;
+        margin-top: 12px;
+        font-size: 11px;
+        color: rgba(255, 255, 255, 0.2);
+        text-decoration: none;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 6px 16px;
+        border-radius: 20px;
+        transition: all 0.3s ease;
+      }
+      .branding__link:hover {
+        color: #f59e0b;
+        border-color: rgba(245, 158, 11, 0.2);
+        background: rgba(245, 158, 11, 0.05);
+      }
+
+      /* ── Embedded Player ── */
+      .embed-player {
+        margin-bottom: 32px;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+      }
+      .embed-player iframe {
+        display: block;
         width: 100%;
         height: 352px;
-        border-radius: 12px;
         border: none;
-      }
-
-      .platform-link {
-        display: block;
-        margin-top: 15px;
-        color: #ff0000;
-        text-decoration: none;
-        font-weight: bold;
-      }
-
-      .platform-link:hover {
-        text-decoration: underline;
-      }
-
-      @media only screen and (max-width: 768px) {
-        nav {
-          display: none;
-        }
-
-        .hamburger {
-          display: flex;
-          position: absolute;
-          top: 10px;
-          right: 10px;
-        }
-
-        .music-links {
-          flex-direction: column;
-          align-items: center;
-          gap: 10px;
-        }
-
-        .music-links button {
-          width: 90%;
-          padding: 12px 0;
-          justify-content: center;
-        }
-
-        .artist-page {
-          padding: 20px;
-          margin: 20px 5%;
-        }
-
-        .artist-page h1 {
-          font-size: 2rem;
-          margin-bottom: 20px;
-        }
-
-        .artist-page img {
-          width: 250px;
-          height: 250px;
-        }
-
-        .song {
-          padding: 15px;
-          margin: 10px;
-        }
-
-        .song h2 {
-          font-size: 1.5rem;
-        }
-
-        .song img {
-          width: 150px;
-          height: 150px;
-        }
-
-        .modal-content {
-          width: 90%;
-          padding: 15px;
-        }
-
-        .embed-container iframe {
-          height: 250px;
-        }
       }
     </style>
   </head>
   <body>
-    <!--<header>
-      <div class="hamburger" onclick="toggleMenu()">
-        <div></div>
-        <div></div>
-        <div></div>
+    <!-- ═══ HERO ═══ -->
+    <section class="hero">
+      <div class="hero__glow"></div>
+      <div class="hero__glow hero__glow--right"></div>
+
+      <div class="avatar">RTB</div>
+      <h1 class="artist-name">RTB GANG</h1>
+      <p class="artist-tagline">The Sound of the Streets</p>
+    </section>
+
+    <!-- ═══ SINGLE RELEASE ═══ -->
+    <section class="release">
+      <div class="badge-wrap">
+        <span class="badge"><span class="dot"></span> Out Now</span>
       </div>
 
-      <nav id="navbar">
-        <a href="index.html">Home</a>
-        <a href="release.html">Releases</a>
-        <a href="artist.html">Artists</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact Us</a>
-        <a href="#Beats for sale">Beats for Sale</a>
-        <a href="Songs.html">Songs</a>
-      </nav>
+      <!-- Cover Art -->
+      <div class="cover">
+        <div class="cover__ring cover__ring--1"></div>
+        <div class="cover__ring cover__ring--2"></div>
+        <div class="cover__ring cover__ring--3"></div>
+        <span class="cover__text-bg">CELEBRATE</span>
 
-      <nav class="mobile-menu" id="mobile-navbar">
-        <a href="index.html">Home</a>
-        <a href="release.html">Releases</a>
-        <a href="artist.html">Artists</a>
-        <a href="about.html">About Us</a>
-        <a href="contact.html">Contact Us</a>
-        <a href="#Beats for sale">Beats for Sale</a>
-        <a href="Songs.html">Songs</a>
-      </nav>
-    </header> -->
+        <!-- ═══ REPLACE src WITH YOUR COVER IMAGE PATH ═══ -->
+        <img
+          src="celebrating-rtb-gang-records-art-cover.jpg"
+          alt="Celebrating - RTB GANG"
+          class="cover__image"
+        />
 
-    <div class="artist-page">
-      <h1>Greenbelt TZ Songs!</h1>
-      <img src="Greenbelt TZ.png" alt="Greenbelt TZ" />
-
-      <div class="songs-section">
-        <div class="song" data-song-id="song1">
-          <h2>Ninasonga Mbele</h2>
-          <img src="G-ninasongambele-cover.jpg" alt="Song 1 Art" />
-          <div class="music-links">
-            <!-- Spotify -->
-            <button onclick="showEmbed('spotify', 'song1')">
-              <i class="fab fa-spotify"></i> Spotify
-            </button>
-
-            <!-- Boomplay -->
-            <button onclick="showEmbed('boomplay', 'song1')">
-              <i class="fas fa-music"></i> Boomplay
-            </button>
-
-            <!-- Audiomack -->
-            <button onclick="showEmbed('audiomack', 'song1')">
-              <i class="fas fa-music"></i> Audiomack
-            </button>
-
-            <!-- Youtube -->
-            <button onclick="showEmbed('youtube', 'song1')">
-              <i class="fab fa-youtube"></i> YouTube
-            </button>
-          </div>
-        </div>
-
-        <div class="song" data-song-id="song2">
-          <h2>Sisi ni wamoja</h2>
-          <img src="G-sisiniwamoja-cover.jpg" alt="Song 2 Art" />
-          <div class="music-links">
-            <!-- Spotify -->
-            <button onclick="showEmbed('spotify', 'song2')">
-              <i class="fab fa-spotify"></i> Spotify
-            </button>
-
-            <!-- Boomplay -->
-            <button onclick="showEmbed('boomplay', 'song2')">
-              <i class="fas fa-music"></i> Boomplay
-            </button>
-
-            <!-- Audiomack -->
-            <button onclick="showEmbed('audiomack', 'song2')">
-              <i class="fas fa-music"></i> Audiomack
-            </button>
-
-            <!-- Youtube -->
-            <button onclick="showEmbed('youtube', 'song2')">
-              <i class="fab fa-youtube"></i> YouTube
-            </button>
-          </div>
-        </div>
-
-        <div class="song" data-song-id="song3">
-          <h2>Wanadamu</h2>
-          <img src="G-wanadamu-cover.jpg" alt="Song 3 Art" />
-          <div class="music-links">
-            <!-- Spotify -->
-            <button onclick="showEmbed('spotify', 'song3')">
-              <i class="fab fa-spotify"></i> Spotify
-            </button>
-
-            <!-- Boomplay -->
-            <button onclick="showEmbed('boomplay', 'song3')">
-              <i class="fas fa-music"></i> Boomplay
-            </button>
-
-            <!-- Audiomack -->
-            <button onclick="showEmbed('audiomack', 'song3')">
-              <i class="fas fa-music"></i> Audiomack
-            </button>
-
-            <!-- Youtube -->
-            <button onclick="showEmbed('youtube', 'song3')">
-              <i class="fab fa-youtube"></i> YouTube
-            </button>
-          </div>
-        </div>
-
-        <div class="song" data-song-id="song4">
-          <h2>Moyo</h2>
-          <img src="G-moyo-cover.jpg" alt="Song 4 Art" />
-          <div class="music-links">
-            <!-- Spotify -->
-            <button onclick="showEmbed('spotify', 'song4')">
-              <i class="fab fa-spotify"></i> Spotify
-            </button>
-
-            <!-- Boomplay -->
-            <button onclick="showEmbed('boomplay', 'song4')">
-              <i class="fas fa-music"></i> Boomplay
-            </button>
-
-            <!-- Audiomack -->
-            <button onclick="showEmbed('audiomack', 'song4')">
-              <i class="fas fa-music"></i> Audiomack
-            </button>
-
-            <!-- Youtube -->
-            <button onclick="showEmbed('youtube', 'song4')">
-              <i class="fab fa-youtube"></i> YouTube
-            </button>
-          </div>
-        </div>
-
-        <div class="song" data-song-id="song5">
-          <h2>Harusi</h2>
-          <img src="G-harusi-cover.JPG" alt="Song 5 Art" />
-          <div class="music-links">
-            <!-- Spotify -->
-            <button onclick="showEmbed('spotify', 'song5')">
-              <i class="fab fa-spotify"></i> Spotify
-            </button>
-
-            <!-- Boomplay -->
-            <button onclick="showEmbed('boomplay', 'song5')">
-              <i class="fas fa-music"></i> Boomplay
-            </button>
-
-            <!-- Audiomack -->
-            <button onclick="showEmbed('audiomack', 'song5')">
-              <i class="fas fa-music"></i> Audiomack
-            </button>
-
-            <!-- Youtube -->
-            <button onclick="showEmbed('youtube', 'song5')">
-              <i class="fab fa-youtube"></i> YouTube
-            </button>
-          </div>
-        </div>
+        <span class="cover__title">Celebrating</span>
+        <span class="cover__artist">RTB GANG</span>
       </div>
-    </div>
 
-    <!-- Modal for embedded content -->
-    <div id="embedModal" class="modal">
-      <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <div id="embedContent" class="embed-container">
-          <!-- Embedded content will be inserted here -->
+      <!-- Song Info -->
+      <div class="song-info">
+        <h2 class="song-title">Celebrating</h2>
+        <div class="song-meta">
+          <span>RTB GANG</span>
+          <span class="dot">·</span>
+          <span>2026</span>
+          <span class="dot">·</span>
+          <span>Single</span>
         </div>
+        <p class="song-desc">
+          The streets are alive — RTB GANG brings the energy with "Celebrating."
+          Real music, real stories, real vibes.
+        </p>
       </div>
-    </div>
 
-    <footer>
-      <p>&copy; 2025 RTB RECORDS. All rights reserved.</p>
-    </footer>
+      <!-- ═══ SPOTIFY EMBED PLAYER ═══ -->
+      <div class="embed-player">
+        <iframe
+          src="https://open.spotify.com/embed/track/5tVdTHqSCsykUFApsynqqz?utm_source=generator"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy"
+        ></iframe>
+      </div>
+
+      <!-- Streaming Buttons -->
+      <p class="stream-label">Listen Now</p>
+      <div class="stream-list">
+        <!-- ✏️ REPLACE href VALUES WITH YOUR ACTUAL LINKS -->
+
+        <a
+          href="https://open.spotify.com/track/5tVdTHqSCsykUFApsynqqz"
+          target="_blank"
+          rel="noopener"
+          class="stream-btn"
+          data-p="spotify"
+        >
+          <span class="icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"
+              />
+            </svg>
+          </span>
+          <span class="label">Spotify</span>
+          <span class="cta">Play ›</span>
+        </a>
+
+        <a
+          href="https://www.boomplay.com/embed/254058514/MUSIC?colType=5&colID=133160322"
+          target="_blank"
+          rel="noopener"
+          class="stream-btn"
+          data-p="boomplay"
+        >
+          <span class="icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <circle
+                cx="12"
+                cy="12"
+                r="10"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              />
+              <polygon points="10,7 18,12 10,17" />
+            </svg>
+          </span>
+          <span class="label">Boomplay</span>
+          <span class="cta">Play ›</span>
+        </a>
+
+        <iframe
+          src="https://audiomack.com//embed/roguetempazbruhrecord21/song/6a413950d2b61"
+          scrolling="no"
+          width="100%"
+          height="252"
+          frameborder="0"
+          title="RTB-GANG_celebrating_.mp3"
+        ></iframe>
+
+        <a
+          href="https://audiomack.com/roguetempazbruhrecord21/song/6a413950d2b61"
+          target="_blank"
+          rel="noopener"
+          class="stream-btn"
+          data-p="audiomack"
+        >
+          <span class="icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <rect x="2" y="14" width="3" height="6" rx="1.5" />
+              <rect x="7" y="10" width="3" height="10" rx="1.5" />
+              <rect x="12" y="6" width="3" height="14" rx="1.5" />
+              <rect x="17" y="2" width="3" height="18" rx="1.5" />
+            </svg>
+          </span>
+          <span class="label">Audiomack</span>
+          <span class="cta">Play ›</span>
+        </a>
+
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/oHZCYyPD1ik?si=j1_KGq7ePDNDkuOQ"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+
+        <a
+          href="https://youtu.be/oHZCYyPD1ik?si=AlxymrCPEtF8VNQx"
+          target="_blank"
+          rel="noopener"
+          class="stream-btn"
+          data-p="youtube"
+        >
+          <span class="icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
+              />
+            </svg>
+          </span>
+          <span class="label">YouTube</span>
+          <span class="cta">Play ›</span>
+        </a>
+      </div>
+
+      <!-- RTB Branding -->
+      <div class="branding">
+        <div class="branding__logo">RTB Gang Records</div>
+        <p class="branding__sub">
+          © 2026 RTB GANG RECORDS · Real music, real stories
+        </p>
+        <a
+          href="https://rtbrecords.github.io/"
+          target="_blank"
+          rel="noopener"
+          class="branding__link"
+          >Visit Official Site →</a
+        >
+      </div>
+    </section>
 
     <script>
-      // Define song data here - replace the placeholders with actual embed URLs and links
-      const songs = {
-        song1: {
-          spotify: {
-            embed:
-              "https://open.spotify.com/embed/album/5pIvpbMLPn8OU3V4E4ft0l?utm_source=generator",
-            link: "https://open.spotify.com/album/5pIvpbMLPn8OU3V4E4ft0l?si=sZYDwiooQLWM7GXkRFgTFw",
+      // Touch feedback for mobile
+      document.querySelectorAll(".stream-btn").forEach((btn) => {
+        btn.addEventListener(
+          "touchstart",
+          () => {
+            btn.style.transform = "scale(0.96)";
+            btn.style.opacity = "0.9";
           },
-          boomplay: {
-            embed:
-              "https://www.boomplay.com/embed/214034404/MUSIC?colType=2&colID=114995348",
-            link: "https://www.boomplay.com/songs/214034404?srModel=COPYLINK&srList=WEB",
-          },
-          audiomack: {
-            embed:
-              "https://audiomack.com//embed/richardomary1245/song/ninasonga",
-            link: "https://www.boomplay.com/songs/214034404?srModel=COPYLINK&srList=WEB",
-          },
-          youtube: {
-            embed:
-              "https://www.youtube.com/embed/-wnPlmVvQz8?si=nKIYJ37en7ymX7nW",
-            link: "https://youtu.be/-wnPlmVvQz8?si=nKIYJ37en7ymX7nW",
-          },
-        },
-        song2: {
-          spotify: {
-            embed:
-              "https://open.spotify.com/embed/album/7AnvqgVKCd6Jks66iawqjV?utm_source=generator",
-            link: "https://open.spotify.com/album/7AnvqgVKCd6Jks66iawqjV?si=4bAWl0NcTxaemM2-EIOTrA",
-          },
-          boomplay: {
-            embed:
-              "https://www.boomplay.com/embed/215499038/MUSIC?colType=2&colID=114995348",
-            link: "https://www.boomplay.com/songs/214034404?srModel=COPYLINK&srList=WEB",
-          },
-          audiomack: {
-            embed:
-              "https://audiomack.com//embed/richardomary1245/song/sisi-ni-wamoja",
-            link: "https://audiomack.com/richardomary1245/song/sisi-ni-wamoja",
-          },
-          youtube: {
-            embed:
-              "https://www.youtube.com/embed/1pgfd8Nk-Fk?si=n5HT6VnmABR1UqhB",
-            link: "https://youtu.be/1pgfd8Nk-Fk?si=n5HT6VnmABR1UqhB",
-          },
-        },
-        song3: {
-          spotify: {
-            embed:
-              "https://open.spotify.com/embed/track/2YlZM644gIpZChmvsXrcxt?utm_source=generator",
-            link: "https://open.spotify.com/track/2YlZM644gIpZChmvsXrcxt?si=be2cc7fe1fdd4dbe",
-          },
-          boomplay: {
-            embed:
-              "https://www.boomplay.com/embed/217318500/MUSIC?colType=5&colID=116724213",
-            link: "https://www.boomplay.com/songs/217318500?srModel=COPYLINK&srList=WEB",
-          },
-          audiomack: {
-            embed:
-              "https://audiomack.com//embed/richardomary1245/song/wanadamu",
-            link: "https://audiomack.com/richardomary1245/song/wanadamu",
-          },
-          youtube: {
-            embed:
-              "https://www.youtube.com/embed/uXEQVhmvmpI?si=dG8F7xg-LPUtJbcw",
-            link: "https://youtu.be/uXEQVhmvmpI?si=we0ny0TNR1_a1vqI",
-          },
-        },
-        song4: {
-          spotify: {
-            embed:
-              "https://open.spotify.com/embed/album/34LdLCswaT69iVZMIktuic?utm_source=generator",
-            link: "https://open.spotify.com/album/34LdLCswaT69iVZMIktuic?si=YwT44ci7QcKSflCzMDxF_g",
-          },
-          boomplay: {
-            embed:
-              "https://www.boomplay.com/embed/219591599/MUSIC?colType=2&colID=114995348",
-            link: "https://www.boomplay.com/songs/219591599?srModel=COPYLINK&srList=WEB",
-          },
-          audiomack: {
-            embed: "https://audiomack.com//embed/richardomary1245/song/moyo",
-            link: "https://audiomack.com/richardomary1245/song/moyo",
-          },
-          youtube: {
-            embed:
-              "https://www.youtube.com/embed/koD1U_ok3g0?si=bgUqDzXBnAzCF8er",
-            link: "https://youtu.be/koD1U_ok3g0?si=bgUqDzXBnAzCF8er",
-          },
-        },
-        song5: {
-          spotify: {
-            embed:
-              "https://open.spotify.com/embed/album/3admEgNCqLoROmcRTE1lTU?utm_source=generator",
-            link: "https://open.spotify.com/album/3admEgNCqLoROmcRTE1lTU?si=wvpq8apzS4miHtYkcDt5oA",
-          },
-          boomplay: {
-            embed:
-              "https://www.boomplay.com/embed/220189611/MUSIC?colType=2&colID=114995348",
-            link: "https://www.boomplay.com/songs/220189611?srModel=COPYLINK&srList=WEB",
-          },
-          audiomack: {
-            embed: "https://audiomack.com//embed/richardomary1245/song/harusi",
-            link: "https://audiomack.com/richardomary1245/song/harusi",
-          },
-          youtube: {
-            embed:
-              "https://www.youtube.com/embed/MO1_zZR3iF4?si=2rpJ-2OuNk7LdoTJ",
-            link: "https://youtu.be/MO1_zZR3iF4?si=2rpJ-2OuNk7LdoTJ",
-          },
-        },
-        song6: {
-          spotify: {
-            embed:
-              "https://open.spotify.com/embed/track/PLACEHOLDER_SONG6_SPOTIFY_EMBED?utm_source=generator",
-            link: "https://open.spotify.com/track/PLACEHOLDER_SONG6_SPOTIFY_LINK?si=PLACEHOLDER",
-          },
-          boomplay: {
-            embed:
-              "https://www.boomplay.com/embed/PLACEHOLDER_SONG6_BOOMPLAY_EMBED/MUSIC?colType=5&colID=PLACEHOLDER",
-            link: "https://www.boomplay.com/songs/PLACEHOLDER_SONG6_BOOMPLAY_LINK?srModel=COPYLINK&srList=WEB",
-          },
-          audiomack: {
-            embed:
-              "https://audiomack.com/embed/PLACEHOLDER_ARTIST/song/PLACEHOLDER_SONG6_AUDIOMACK",
-            link: "https://audiomack.com/PLACEHOLDER_ARTIST/song/PLACEHOLDER_SONG6_AUDIOMACK",
-          },
-          youtube: {
-            embed:
-              "https://www.youtube.com/embed/PLACEHOLDER_SONG6_YOUTUBE_VIDEO_ID?si=PLACEHOLDER",
-            link: "https://youtu.be/PLACEHOLDER_SONG6_YOUTUBE_VIDEO_ID?si=PLACEHOLDER",
-          },
-        },
-      };
-
-      // Function to show the embedded player
-      function showEmbed(platform, songId) {
-        const modal = document.getElementById("embedModal");
-        const embedContent = document.getElementById("embedContent");
-        const songData = songs[songId][platform];
-
-        if (!songData) {
-          embedContent.innerHTML =
-            '<p style="color: #fff;">Content not available yet for this platform.</p>';
-          modal.style.display = "flex";
-          return;
-        }
-
-        // Clear previous content
-        embedContent.innerHTML = "";
-
-        // Generate content based on platform
-        let embedHtml = "";
-        let linkHtml = "";
-
-        switch (platform) {
-          case "spotify":
-            embedHtml = `
-              <iframe style="border-radius:12px" 
-                src="${songData.embed}" 
-                width="100%" 
-                height="352" 
-                frameBorder="0" 
-                allowfullscreen="" 
-                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                loading="lazy">
-              </iframe>`;
-            linkHtml = `<a href="${songData.link}" class="platform-link" target="_blank">Open in Spotify</a>`;
-            break;
-
-          case "boomplay":
-            embedHtml = `
-              <div style="width:100%;height:300px;background-color:#1e1e1e;display:flex;flex-direction:column;align-items:center;justify-content:center;color:white;border-radius:12px;padding:20px;box-sizing:border-box;">
-                <iframe src="${songData.embed}" width="300" height="250" frameborder="0"></iframe>
-                <p style="margin-bottom:20px;">Click the link below to listen on Boomplay:</p>
-                <a href="${songData.link}" style="color:#ff0000;font-weight:bold;text-decoration:none;font-size:1.2em;" target="_blank">
-                  Listen on Boomplay
-                </a>
-              </div>`;
-            break;
-
-          case "audiomack":
-            embedHtml = `
-              <iframe src="${songData.embed}" scrolling="no" width="100%" height="252" frameborder="0" title="Song Title"></iframe>`;
-            linkHtml = `<a href="${songData.link}" class="platform-link" target="_blank">Open in Audiomack</a>`;
-            break;
-
-          case "youtube":
-            embedHtml = `
-              <iframe 
-                width="100%" 
-                height="315" 
-                src="${songData.embed}" 
-                title="YouTube video player" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                referrerpolicy="strict-origin-when-cross-origin" 
-                allowfullscreen>
-              </iframe>`;
-            linkHtml = `<a href="${songData.link}" class="platform-link" target="_blank">Watch on YouTube</a>`;
-            break;
-        }
-
-        embedContent.innerHTML = embedHtml + linkHtml;
-
-        // Show the modal
-        modal.style.display = "flex";
-      }
-
-      // Function to close the modal
-      function closeModal() {
-        document.getElementById("embedModal").style.display = "none";
-      }
-
-      // Close modal when clicking outside of it
-      window.onclick = function (event) {
-        const modal = document.getElementById("embedModal");
-        if (event.target == modal) {
-          closeModal();
-        }
-      };
-
-      // Hamburger menu functionality
-      function toggleMenu() {
-        const mobileNavbar = document.getElementById("mobile-navbar");
-        mobileNavbar.classList.toggle("show");
-        document.querySelector(".hamburger").classList.toggle("active");
-      }
+          { passive: true }
+        );
+        btn.addEventListener("touchend", () => {
+          btn.style.transform = "";
+          btn.style.opacity = "";
+        });
+      });
     </script>
   </body>
 </html>
