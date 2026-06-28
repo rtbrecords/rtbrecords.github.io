@@ -440,6 +440,28 @@
         color: #ff0033;
       }
 
+      .stream-btn[data-p="applemusic"]:hover {
+        border-color: #fa233b;
+        background: rgba(250, 35, 59, 0.08);
+        color: #fa233b;
+        box-shadow: 0 10px 36px rgba(250, 35, 59, 0.12);
+      }
+      .stream-btn[data-p="applemusic"]:hover .cta {
+        opacity: 1;
+        color: #fa233b;
+      }
+
+      .stream-btn[data-p="deezer"]:hover {
+        border-color: #a238ff;
+        background: rgba(162, 56, 255, 0.08);
+        color: #a238ff;
+        box-shadow: 0 10px 36px rgba(162, 56, 255, 0.12);
+      }
+      .stream-btn[data-p="deezer"]:hover .cta {
+        opacity: 1;
+        color: #a238ff;
+      }
+
       /* ── RTB branding bar ── */
       .branding {
         text-align: center;
@@ -493,6 +515,265 @@
         height: 352px;
         border: none;
       }
+
+      /* ── 📱 Mobile Responsiveness ── */
+      @media (max-width: 480px) {
+        .hero {
+          padding: 32px 16px 24px;
+        }
+
+        .hero__glow {
+          width: 400px;
+          height: 400px;
+          top: -100px;
+        }
+        .hero__glow--right {
+          width: 160px;
+          height: 160px;
+          right: -60px;
+        }
+
+        .avatar {
+          width: 80px;
+          height: 80px;
+          font-size: 12px;
+          margin: 0 auto 16px;
+        }
+        .avatar::after {
+          inset: -4px;
+        }
+
+        .artist-name {
+          font-size: 26px;
+        }
+        .artist-tagline {
+          font-size: 9px;
+          letter-spacing: 3px;
+        }
+
+        .release {
+          padding: 0 16px 40px;
+        }
+
+        .badge {
+          font-size: 8px;
+          padding: 5px 14px;
+          letter-spacing: 2px;
+        }
+        .badge .dot {
+          width: 5px;
+          height: 5px;
+        }
+
+        .cover {
+          max-width: 280px;
+          border-radius: 18px;
+          margin: 0 auto 24px;
+        }
+        .cover__image {
+          border-radius: 18px;
+        }
+        .cover__ring--1 {
+          width: 100px;
+          height: 100px;
+        }
+        .cover__ring--2 {
+          width: 70px;
+          height: 70px;
+        }
+        .cover__ring--3 {
+          width: 140px;
+          height: 140px;
+        }
+        .cover__text-bg {
+          font-size: 48px;
+          letter-spacing: -2px;
+        }
+
+        .cover__title {
+          font-size: 18px;
+          letter-spacing: 4px;
+          margin-top: 10px;
+        }
+        .cover__artist {
+          font-size: 9px;
+          letter-spacing: 2px;
+          margin-top: 4px;
+        }
+
+        .song-title {
+          font-size: 20px;
+        }
+        .song-meta {
+          font-size: 11px;
+          gap: 6px;
+          flex-wrap: wrap;
+        }
+        .song-desc {
+          font-size: 13px;
+          padding: 0 4px;
+        }
+
+        .embed-player {
+          margin-bottom: 24px;
+          border-radius: 12px;
+        }
+        .embed-player iframe {
+          height: 280px;
+        }
+
+        .stream-label {
+          font-size: 9px;
+          letter-spacing: 2px;
+          margin-bottom: 8px;
+        }
+
+        .stream-btn {
+          padding: 13px 16px;
+          font-size: 14px;
+          gap: 10px;
+          border-radius: 12px;
+        }
+        .stream-btn .icon {
+          width: 22px;
+          height: 22px;
+        }
+        .stream-btn .cta {
+          font-size: 10px;
+          letter-spacing: 1px;
+        }
+
+        .branding {
+          margin-top: 36px;
+          padding-top: 16px;
+        }
+        .branding__logo {
+          font-size: 10px;
+          letter-spacing: 2px;
+        }
+        .branding__sub {
+          font-size: 8px;
+        }
+        .branding__link {
+          font-size: 10px;
+          padding: 5px 14px;
+        }
+      }
+
+      @media (max-width: 380px) {
+        .hero {
+          padding: 24px 12px 16px;
+        }
+
+        .hero__glow {
+          width: 300px;
+          height: 300px;
+          top: -80px;
+        }
+        .hero__glow--right {
+          width: 120px;
+          height: 120px;
+          right: -40px;
+        }
+
+        .avatar {
+          width: 64px;
+          height: 64px;
+          font-size: 10px;
+          margin: 0 auto 12px;
+        }
+
+        .artist-name {
+          font-size: 20px;
+        }
+        .artist-tagline {
+          font-size: 8px;
+          letter-spacing: 2px;
+        }
+
+        .release {
+          padding: 0 12px 32px;
+        }
+
+        .cover {
+          max-width: 220px;
+          border-radius: 14px;
+          margin: 0 auto 18px;
+        }
+        .cover__image {
+          border-radius: 14px;
+        }
+        .cover__ring--1 {
+          width: 70px;
+          height: 70px;
+        }
+        .cover__ring--2 {
+          width: 50px;
+          height: 50px;
+        }
+        .cover__ring--3 {
+          width: 100px;
+          height: 100px;
+        }
+        .cover__text-bg {
+          font-size: 36px;
+        }
+
+        .cover__title {
+          font-size: 14px;
+          letter-spacing: 3px;
+          margin-top: 6px;
+        }
+        .cover__artist {
+          font-size: 8px;
+          letter-spacing: 1.5px;
+          margin-top: 2px;
+        }
+
+        .song-title {
+          font-size: 17px;
+        }
+        .song-meta {
+          font-size: 10px;
+          gap: 4px;
+        }
+        .song-desc {
+          font-size: 12px;
+        }
+
+        .embed-player iframe {
+          height: 200px;
+        }
+
+        .stream-btn {
+          padding: 11px 14px;
+          font-size: 13px;
+          gap: 8px;
+          border-radius: 10px;
+        }
+        .stream-btn .icon {
+          width: 18px;
+          height: 18px;
+        }
+        .stream-btn .cta {
+          font-size: 9px;
+        }
+
+        .branding {
+          margin-top: 28px;
+          padding-top: 12px;
+        }
+        .branding__logo {
+          font-size: 9px;
+        }
+        .branding__sub {
+          font-size: 7px;
+        }
+        .branding__link {
+          font-size: 9px;
+          padding: 4px 12px;
+        }
+      }
     </style>
   </head>
   <body>
@@ -524,7 +805,6 @@
           alt="Celebrating - RTB GANG"
           class="cover__image"
         />
-
       </div>
 
       <!-- Song Info -->
@@ -653,6 +933,53 @@
             </svg>
           </span>
           <span class="label">YouTube</span>
+          <span class="cta">Play ›</span>
+        </a>
+
+        <!-- ═══ APPLE MUSIC ═══ -->
+        <a
+          href="https://music.apple.com/us/album/celebrating-single/6779773981"
+          target="_blank"
+          rel="noopener"
+          class="stream-btn"
+          data-p="applemusic"
+        >
+          <span class="icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M21.7 2.3c-1.4-.7-3.1-.9-5.2-.5-2.3.4-4.5 1.7-5.8 3.2-.1.2-.1.4 0 .6.1.2.3.3.5.3.5 0 1-.2 1.4-.4 2.7-1.6 6.4-1.9 9.1-.5.3.1.6.2.9.2.6 0 1.1-.3 1.4-.8.3-.5.2-1.1-.3-2.1z"
+              />
+              <path
+                d="M21.4 5.6c-.3-.2-.6-.3-.9-.3-.6 0-1.1.3-1.4.8-1.9 3-5.9 4.6-9.6 3.7-1.2-.3-2.3-.9-3.2-1.7-.3-.3-.7-.5-1.1-.5-.6 0-1.1.3-1.4.8-.3.5-.2 1.1.3 1.6 1.2 1 2.6 1.8 4.1 2.3 1.7.5 3.5.7 5.3.4 2.2-.3 4.3-1.3 5.8-2.9.4-.4.5-1 .2-1.5-.2-.4-.6-.6-1.1-.7z"
+              />
+              <path
+                d="M3.2 14.8c-.3-.2-.6-.3-.9-.3-.6 0-1.1.3-1.4.8-.3.5-.2 1.1.3 1.6.8.7 1.8 1.2 2.9 1.5 1.3.3 2.6.5 4 .4.5 0 1-.1 1.5-.2 2.9-.4 5.6-1.8 7.5-3.9.4-.4.5-1 .2-1.5-.2-.4-.6-.6-1.1-.7-.3-.2-.6-.3-.9-.3-.6 0-1.1.3-1.4.8-1.4 1.6-3.4 2.7-5.6 3-1.4.2-2.8.1-4.1-.3-.8-.2-1.5-.6-2.1-1.1-.3-.2-.7-.4-1.1-.4z"
+              />
+              <path
+                d="M18.5 18.2c-.3-.2-.6-.3-.9-.3-.6 0-1.1.3-1.4.8-1.4 1.9-3.6 3.1-6 3.3-.7 0-1.4-.1-2.1-.2-1.2-.2-2.3-.7-3.3-1.4-.3-.2-.6-.3-.9-.3-.6 0-1.1.3-1.4.8-.3.5-.2 1.1.3 1.6 1.2 1 2.6 1.8 4.2 2.3 1.3.4 2.7.6 4.1.6 3.6 0 6.9-1.6 9.1-4.3.4-.4.5-1 .2-1.5-.2-.4-.6-.6-1.1-.7z"
+              />
+            </svg>
+          </span>
+          <span class="label">Apple Music</span>
+          <span class="cta">Play ›</span>
+        </a>
+
+        <!-- ═══ DEEZER ═══ -->
+        <a
+          href="https://link.deezer.com/s/33GkhGA102TL9BtW08DcD"
+          target="_blank"
+          rel="noopener"
+          class="stream-btn"
+          data-p="deezer"
+        >
+          <span class="icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path
+                d="M22.5 4.5h-21C.7 4.5 0 5.2 0 6v12c0 .8.7 1.5 1.5 1.5h21c.8 0 1.5-.7 1.5-1.5V6c0-.8-.7-1.5-1.5-1.5zM5.5 16.5h-3v-2h3v2zm0-3.5h-3v-2h3v2zm0-3.5h-3v-2h3v2zm4 7h-3v-2h3v2zm0-3.5h-3v-2h3v2zm0-3.5h-3v-2h3v2zm4 7h-3v-2h3v2zm0-3.5h-3v-2h3v2zm0-3.5h-3v-2h3v2zm4 7h-3v-2h3v2zm0-3.5h-3v-2h3v2zm0-3.5h-3v-2h3v2zm4 7h-3v-2h3v2zm0-3.5h-3v-2h3v2zm0-3.5h-3v-2h3v2z"
+              />
+            </svg>
+          </span>
+          <span class="label">Deezer</span>
           <span class="cta">Play ›</span>
         </a>
       </div>
